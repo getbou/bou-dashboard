@@ -1,7 +1,7 @@
 """
 BOU Sales Command Center — Streamlit + Plotly
 ================================================
-Lee EN VIVO data/daily-log.json del repo luisgarzonv1/bou-dashboard (misma fuente
+Lee EN VIVO data/daily-log.json del repo getbou/bou-dashboard (misma fuente
 que ya actualizan las tareas programadas bou-dashboard-diario / bou-dashboard-cierre).
 No modifica esa automatizacion -- esto es solo una capa de presentacion nueva.
 
@@ -22,7 +22,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from datetime import date, timedelta
 
-DAILY_LOG_URL = "https://raw.githubusercontent.com/luisgarzonv1/bou-dashboard-data/main/data/daily-log.json"
+DAILY_LOG_URL = "https://raw.githubusercontent.com/getbou/bou-dashboard-data/main/data/daily-log.json"
 GITHUB_TOKEN = st.secrets.get("GITHUB_TOKEN", "")
 
 # Categorías de BOU Logistica (proyecto aparte, ver Productos de BOU Logistica.xlsx) que
@@ -224,7 +224,7 @@ today_str = last_day["date"]
 # ---------- Header ----------
 st.markdown(
     '<div class="bcc-warn-box">⚠️ Dashboard conectado a datos reales de '
-    '<code>daily-log.json</code> (repo luisgarzonv1/bou-dashboard). Sigue las reglas de '
+    '<code>daily-log.json</code> (repo getbou/bou-dashboard). Sigue las reglas de '
     'veracidad: campos en 0/null se muestran como "sin dato", nunca se suma USD+COP sin '
     'mostrar la TRM, y los campos nuevos sin metodologia documentada se marcan "en desarrollo".</div>',
     unsafe_allow_html=True,
