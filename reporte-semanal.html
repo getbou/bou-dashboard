@@ -225,6 +225,9 @@
     <div id="ecAlertBox"></div>
     <div class="narrative-block"><div class="narrative-label">Lectura del embudo</div><div class="narrative" id="ecFunnelNarrative"></div></div>
 
+    <div class="subsection-title">Kommo — mensajería y servicio, Ecuador</div>
+    <div class="kpi-grid" id="ecKommoKpis"></div>
+
     <div class="subsection-title">Eventos GA4 — Ecuador</div>
     <div class="subsection-sub" id="ecEventosSub">Fuente: GA4 · Todos los eventos registrados en la semana</div>
     <div class="two-col">
@@ -276,6 +279,9 @@
     </div>
     <div id="colAlertBox"></div>
     <div class="narrative-block"><div class="narrative-label">Lectura del embudo</div><div class="narrative" id="colFunnelNarrative"></div></div>
+
+    <div class="subsection-title">Kommo — mensajería y servicio, Colombia</div>
+    <div class="kpi-grid" id="colKommoKpis"></div>
 
     <div class="subsection-title">Eventos GA4 — Colombia</div>
     <div class="subsection-sub">Fuente: GA4 · Todos los eventos registrados en la semana</div>
@@ -434,6 +440,15 @@ function deltaLabel(curr, prev, suffix) {
 }
 function kpiCard(label, value, deltaHtml) {
   return '<div class="kpi"><div class="kpi-label">' + label + '</div><div class="kpi-value">' + value + '</div>' + (deltaHtml||'') + '</div>';
+}
+function topCanal(mix) {
+  if (!mix || !Object.keys(mix).length) return 'sin dato';
+  return Object.entries(mix).sort((a,b) => b[1]-a[1])[0][0];
+}
+function canalSub(mix) {
+  if (!mix || !Object.keys(mix).length) return '';
+  const top3 = Object.entries(mix).sort((a,b) => b[1]-a[1]).slice(0,3);
+  return '<span class="kpi-delta">' + top3.map(([k,v]) => k + ' ' + v).join(' · ') + '</span>';
 }
 function insightCard(tag, tagLabel, title, body, action) {
   return '<div class="insight"><div class="insight-tag ' + tag + '">' + tagLabel + '</div><div class="insight-title">' + title + '</div><div class="insight-body">' + body + '</div>' + (action ? '<div class="insight-action">' + action + '</div>' : '') + '</div>';
@@ -670,8 +685,13 @@ function renderWeek(weekId) {
   document.getElementById('ecKpis').innerHTML =
     kpiCard('Usuarios GA4', fmtInt(ec.trafico.ga4_usuarios), deltaLabel(ec.trafico.ga4_usuarios, ec.trafico.prev_ga4_usuarios)) +
     kpiCard('Ingresos GA4 (USD)', fmtUsd(ec.trafico.ga4_ingresos_usd), deltaLabel(ec.trafico.ga4_ingresos_usd, ec.trafico.prev_ga4_ingresos_usd)) +
-    kpiCard('Ventas web (PrestaShop)', ec.ventas.prestashop_pedidos + ' pedidos', '<span class="kpi-delta">' + fmtUsd(ec.ventas.prestashop_total_usd) + ' · sem. previa: ' + ec.ventas.prev_prestashop_pedidos + ' pedidos</span>') +
-    kpiCard('Msj Kommo (ent/sal)', ec.mensajeria.entrantes + ' / ' + ec.mensajeria.salientes, '<span class="kpi-delta">sem. previa: ' + ec.mensajeria.prev_entrantes + ' / ' + ec.mensajeria.prev_salientes + '</span>');
+    kpiCard('Ventas web (PrestaShop)', ec.ventas.prestashop_pedidos + ' pedidos', '<span class="kpi-delta">' + fmtUsd(ec.ventas.prestashop_total_usd) + ' · sem. previa: ' + ec.ventas.prev_prestashop_pedidos + ' pedidos</span>');
+
+  document.getElementById('ecKommoKpis').innerHTML =
+    kpiCard('Msj Kommo (ent/sal)', ec.mensajeria.entrantes + ' / ' + ec.mensajeria.salientes, '<span class="kpi-delta">sem. previa: ' + ec.mensajeria.prev_entrantes + ' / ' + ec.mensajeria.prev_salientes + '</span>') +
+    kpiCard('Lapso de respuesta', ec.mensajeria.lapso_mediana_s ? Math.round(ec.mensajeria.lapso_mediana_s/60) + 'm' : 'sin dato', ec.mensajeria.prev_lapso_mediana_s ? '<span class="kpi-delta">sem. previa: ' + Math.round(ec.mensajeria.prev_lapso_mediana_s/60) + 'm</span>' : '') +
+    kpiCard('Backlog sin responder', (ec.kommo_backlog != null ? ec.kommo_backlog : 'sin dato'), '<span class="kpi-delta">chats BE, snapshot fin de semana</span>') +
+    kpiCard('Mezcla de canal', topCanal(ec.canal_mix), canalSub(ec.canal_mix));
 
   barChart('ecTraficoChart', ['Usuarios', 'Compras GA4'], [ec.trafico.ga4_usuarios, ec.trafico.ga4_compras], [ec.trafico.prev_ga4_usuarios, ec.trafico.prev_ga4_compras], week.week_start+'–'+week.week_end, week.week_start_prev+'–'+week.week_end_prev);
   document.getElementById('ecFunnelTag').textContent = (ec.funnel_kommo.total || 0) + ' leads (ventana ' + (ec.funnel_kommo.window_days||30) + 'd)';
@@ -692,8 +712,13 @@ function renderWeek(weekId) {
   document.getElementById('colKpis').innerHTML =
     kpiCard('Usuarios GA4', fmtInt(col.trafico.ga4_usuarios), deltaLabel(col.trafico.ga4_usuarios, col.trafico.prev_ga4_usuarios)) +
     kpiCard('Ingresos GA4 (USD)', fmtUsd(col.trafico.ga4_ingresos_usd), deltaLabel(col.trafico.ga4_ingresos_usd, col.trafico.prev_ga4_ingresos_usd)) +
-    kpiCard('Ventas web (PrestaShop)', col.ventas.prestashop_pedidos + ' pedidos', '<span class="kpi-delta">' + fmtCop(col.ventas.prestashop_total_cop) + '</span>') +
-    kpiCard('Msj Kommo (ent/sal)', col.mensajeria.entrantes + ' / ' + col.mensajeria.salientes, '<span class="kpi-delta">sem. previa: ' + col.mensajeria.prev_entrantes + ' / ' + col.mensajeria.prev_salientes + '</span>');
+    kpiCard('Ventas web (PrestaShop)', col.ventas.prestashop_pedidos + ' pedidos', '<span class="kpi-delta">' + fmtCop(col.ventas.prestashop_total_cop) + '</span>');
+
+  document.getElementById('colKommoKpis').innerHTML =
+    kpiCard('Msj Kommo (ent/sal)', col.mensajeria.entrantes + ' / ' + col.mensajeria.salientes, '<span class="kpi-delta">sem. previa: ' + col.mensajeria.prev_entrantes + ' / ' + col.mensajeria.prev_salientes + '</span>') +
+    kpiCard('Lapso de respuesta', col.mensajeria.lapso_mediana_s ? Math.round(col.mensajeria.lapso_mediana_s/60) + 'm' : 'sin dato', col.mensajeria.prev_lapso_mediana_s ? '<span class="kpi-delta">sem. previa: ' + Math.round(col.mensajeria.prev_lapso_mediana_s/60) + 'm</span>' : '') +
+    kpiCard('Backlog sin responder', (col.kommo_backlog != null ? col.kommo_backlog : 'sin dato'), '<span class="kpi-delta">chats BE, snapshot fin de semana</span>') +
+    kpiCard('Mezcla de canal', topCanal(col.canal_mix), canalSub(col.canal_mix));
 
   barChart('colTraficoChart', ['Usuarios', 'Compras GA4'], [col.trafico.ga4_usuarios, col.trafico.ga4_compras], [col.trafico.prev_ga4_usuarios, col.trafico.prev_ga4_compras], week.week_start+'–'+week.week_end, week.week_start_prev+'–'+week.week_end_prev);
   document.getElementById('colFunnelTag').textContent = (col.funnel_kommo.total || 0) + ' leads (ventana ' + (col.funnel_kommo.window_days||30) + 'd)';
