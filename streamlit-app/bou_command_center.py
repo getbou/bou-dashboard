@@ -425,22 +425,32 @@ with tab_ec:
     )
     st.write("")
 
-    col1, col2 = st.columns([2, 1])
-    with col1:
-        panel_header("Facturación diaria", "USD, Contífico (fuente primaria)")
-        dfrows = pd.DataFrame(rows).sort_values("date")
-        fig = go.Figure(go.Scatter(x=dfrows["date"], y=dfrows["contifico_total_usd"], fill="tozeroy",
-                                    line=dict(color=GOLD, width=2), fillcolor="rgba(255,182,72,0.28)"))
-        fig = mark_parcial_day(fig, rows, end)
-        st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
-    with col2:
-        panel_header("Mensajería Kommo EC")
-        entrantes = sum_field(rows, "kommo_msj_entrantes_ec")
-        salientes = sum_field(rows, "kommo_msj_salientes_ec")
-        lapso = last_day.get("kommo_lapso_medio_ec_s")
-        st.markdown(f'<div class="bcc-card" style="--accent:{BLUE};"><span class="lbl">Entrantes / Salientes</span>'
-                     f'<div class="val" style="font-size:20px;">{fmt_or_missing(entrantes)} / {fmt_or_missing(salientes)}</div>'
-                     f'<div class="sub">Lapso resp. {(str(int(lapso//60))+"m") if lapso else "sin dato"}</div></div>', unsafe_allow_html=True)
+    panel_header("Facturación diaria", "USD, Contífico (fuente primaria)")
+    dfrows = pd.DataFrame(rows).sort_values("date")
+    fig = go.Figure(go.Scatter(x=dfrows["date"], y=dfrows["contifico_total_usd"], fill="tozeroy",
+                                line=dict(color=GOLD, width=2), fillcolor="rgba(255,182,72,0.28)"))
+    fig = mark_parcial_day(fig, rows, end)
+    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+
+    st.write("")
+    panel_header("Kommo", "Ecuador — mensajería, lapso de respuesta, backlog y mezcla de canal")
+    entrantes = sum_field(rows, "kommo_msj_entrantes_ec")
+    salientes = sum_field(rows, "kommo_msj_salientes_ec")
+    lapso = last_day.get("kommo_lapso_medio_ec_s")
+    backlog = last_day.get("kommo_backlog_ec")
+    canal_mix = last_day.get("kommo_canal_mix_ec") or {}
+    canal_top = max(canal_mix, key=canal_mix.get) if canal_mix else None
+    canal_sub = (" · ".join(f"{k} {v}" for k, v in sorted(canal_mix.items(), key=lambda kv: -kv[1])[:3])
+                 if canal_mix else "sin dato")
+    kk1, kk2, kk3, kk4 = st.columns(4)
+    with kk1:
+        kpi_card("Mensajería EC", f"{fmt_or_missing(entrantes)} / {fmt_or_missing(salientes)}", "entrantes / salientes hoy", BLUE, "\U0001F4AC")
+    with kk2:
+        kpi_card("Lapso de respuesta EC", (str(int(lapso // 60)) + "m") if lapso else "sin dato", "mediana del día", GOLD, "⏱")
+    with kk3:
+        kpi_card("Backlog sin responder EC", fmt_or_missing(backlog), "chats BE sin responder ahora mismo", "#c0392b" if (backlog or 0) > 0 else MINT, "\U0001F4E5")
+    with kk4:
+        kpi_card("Mezcla de canal EC", canal_top or "sin dato", canal_sub, LILAC, "\U0001F4CA")
 
     st.write("")
     panel_header("Ingresos web PrestaShop EC", "referencia/respaldo, no se suma a Contífico")
@@ -663,22 +673,32 @@ with tab_col:
         unsafe_allow_html=True,
     )
     st.write("")
-    col1, col2 = st.columns([2, 1])
-    with col1:
-        panel_header("Ingresos web diarios", "COP, PrestaShop COL (complementario)")
-        dfrows = pd.DataFrame(rows).sort_values("date")
-        fig = go.Figure(go.Scatter(x=dfrows["date"], y=dfrows["prestashop_total_col_cop"], fill="tozeroy",
-                                    line=dict(color=MINT, width=2), fillcolor="rgba(79,227,193,0.28)"))
-        fig = mark_parcial_day(fig, rows, end)
-        st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
-    with col2:
-        panel_header("Mensajería Kommo COL")
-        entrantes = sum_field(rows, "kommo_msj_entrantes_col")
-        salientes = sum_field(rows, "kommo_msj_salientes_col")
-        lapso = last_day.get("kommo_lapso_medio_col_s")
-        st.markdown(f'<div class="bcc-card" style="--accent:{BLUE};"><span class="lbl">Entrantes / Salientes</span>'
-                     f'<div class="val" style="font-size:20px;">{fmt_or_missing(entrantes)} / {fmt_or_missing(salientes)}</div>'
-                     f'<div class="sub">Lapso resp. {(str(int(lapso//60))+"m") if lapso else "sin dato"}</div></div>', unsafe_allow_html=True)
+    panel_header("Ingresos web diarios", "COP, PrestaShop COL (complementario)")
+    dfrows = pd.DataFrame(rows).sort_values("date")
+    fig = go.Figure(go.Scatter(x=dfrows["date"], y=dfrows["prestashop_total_col_cop"], fill="tozeroy",
+                                line=dict(color=MINT, width=2), fillcolor="rgba(79,227,193,0.28)"))
+    fig = mark_parcial_day(fig, rows, end)
+    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+
+    st.write("")
+    panel_header("Kommo", "Colombia — mensajería, lapso de respuesta, backlog y mezcla de canal")
+    entrantes = sum_field(rows, "kommo_msj_entrantes_col")
+    salientes = sum_field(rows, "kommo_msj_salientes_col")
+    lapso = last_day.get("kommo_lapso_medio_col_s")
+    backlog = last_day.get("kommo_backlog_col")
+    canal_mix = last_day.get("kommo_canal_mix_col") or {}
+    canal_top = max(canal_mix, key=canal_mix.get) if canal_mix else None
+    canal_sub = (" · ".join(f"{k} {v}" for k, v in sorted(canal_mix.items(), key=lambda kv: -kv[1])[:3])
+                 if canal_mix else "sin dato")
+    kk1, kk2, kk3, kk4 = st.columns(4)
+    with kk1:
+        kpi_card("Mensajería COL", f"{fmt_or_missing(entrantes)} / {fmt_or_missing(salientes)}", "entrantes / salientes hoy", BLUE, "\U0001F4AC")
+    with kk2:
+        kpi_card("Lapso de respuesta COL", (str(int(lapso // 60)) + "m") if lapso else "sin dato", "mediana del día", GOLD, "⏱")
+    with kk3:
+        kpi_card("Backlog sin responder COL", fmt_or_missing(backlog), "chats BE sin responder ahora mismo", "#c0392b" if (backlog or 0) > 0 else MINT, "\U0001F4E5")
+    with kk4:
+        kpi_card("Mezcla de canal COL", canal_top or "sin dato", canal_sub, LILAC, "\U0001F4CA")
 
     st.write("")
     panel_header("Funnel Kommo COL", "ventana móvil 30 días · orden real del pipeline")
