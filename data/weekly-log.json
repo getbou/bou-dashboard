@@ -1430,6 +1430,450 @@
         "Meta Ads: 0 ad sets activos confirmado con Windsor.ai (connector facebook) tanto para el rango 10-16 ago como con date_preset last_7dT.",
         "Colombia tuvo 0 compras reales esta semana; no se pudo verificar si el bug de item_revenue=$0 (reportado semanas anteriores) sigue presente."
       ]
+    },
+    {
+      "week_id": "2026-W34",
+      "week_start": "2026-08-17",
+      "week_end": "2026-08-23",
+      "week_start_prev": "2026-08-10",
+      "week_end_prev": "2026-08-16",
+      "generated_at": "2026-08-25",
+      "generated_note": "Semana completa (lunes 17/ago a domingo 23/ago), comparada contra la semana previa completa (10-16 ago, tomando los valores ya publicados en la entrada 2026-W33 como base de comparacion, porque data/daily-log.json solo tiene 5 de los 7 dias de esa semana). Tráfico GA4 y compras se tomaron directo de Windsor.ai (fuente primaria) porque el agregado de daily-log.json para esta semana sigue subestimando sesiones/usuarios frente al detalle por canal (ver hallazgo tecnico). Los dias sabado 22 y domingo 23 de agosto en daily-log.json llevan el corte parcial de la manana (bou-dashboard-cierre no corre fines de semana), por lo que mensajeria/PrestaShop/Contifico de esos dos dias probablemente estan subestimados.",
+      "headline": "Meta Ads completa <em>2 semanas en cero</em>: Colombia se recupera de forma organica mientras Ecuador no vende ni un pedido",
+      "headline_html": "Semana del <em>17</em> al 23 de agosto.",
+      "subtitle": "Reporte ejecutivo Ecuador + Colombia + Meta Ads, semana completa (17-23 ago) comparada contra la semana previa completa (10-16 ago).",
+      "resumen_lead": "Meta Ads cumple su segunda semana completa consecutiva en cero (sin gasto desde el 4 de agosto, ~20 dias). Pese a eso, Colombia se recupera con fuerza de forma 100% organica: usuarios GA4 +45% (62->90), sesiones +51% (90->136), y pasa de 0 a 3 compras ($74.02) y de 0 a 2 pedidos PrestaShop (274,250 COP). Ecuador tiene la cara opuesta: el trafico sube (+12% usuarios, +11% sesiones) pero las conversiones se apagan por completo -0 compras GA4 y 0 pedidos PrestaShop por segunda semana seguida-, y los leads nuevos de Kommo caen de 12 a 0.",
+      "resumen_insights": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Ecuador: segunda semana seguida sin una sola venta",
+          "body": "0 pedidos PrestaShop y 0 compras GA4 pese a que el trafico crecio (+12% usuarios, +11% sesiones). Los leads nuevos de Kommo tambien cayeron a <strong>0</strong> esta semana (vs 12 la anterior). El trafico esta entrando pero no esta convirtiendo ni generando pipeline nuevo."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Meta Ads: 2da semana completa en cero (~20 dias sin invertir)",
+          "body": "El unico ad set con actividad reciente ('publico segmentado - Copia', campana 'la piel colombia nuevo') sigue pausado desde el 9 de agosto. La empresa no tiene ninguna campana paga corriendo actualmente en ningun pais."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Colombia se recupera 100% organico, sin gastar en ads",
+          "body": "Usuarios +45%, sesiones +51%, ingresos GA4 de $0 a <strong>$74.02</strong>, pedidos PrestaShop de 0 a 2. Mensajes entrantes se multiplicaron por 5 (18->89). Vale la pena identificar que impulso este repunte para sostenerlo."
+        }
+      ],
+      "ecuador": {
+        "trafico": {
+          "ga4_usuarios": 158,
+          "ga4_sesiones": 204,
+          "ga4_ingresos_usd": 0,
+          "ga4_compras": 0,
+          "prev_ga4_usuarios": 141,
+          "prev_ga4_sesiones": 183,
+          "prev_ga4_ingresos_usd": 52.16,
+          "prev_ga4_compras": 4
+        },
+        "ventas": {
+          "prestashop_pedidos": 0,
+          "prestashop_total_usd": 0,
+          "prev_prestashop_pedidos": 0,
+          "prev_prestashop_total_usd": 0
+        },
+        "mensajeria": {
+          "entrantes": 32,
+          "salientes": 41,
+          "prev_entrantes": 74,
+          "prev_salientes": 71,
+          "lapso_mediana_s": 6344.7,
+          "prev_lapso_mediana_s": 1113.0
+        },
+        "kommo_backlog": null,
+        "canal_mix": {},
+        "funnel_kommo": {
+          "total": 113,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 0,
+          "etapas": {
+            "Leads ganados": 6,
+            "leads Tibios (interacción)": 22,
+            "Reacciones y Comentarios": 61,
+            "Leads perdidos": 6,
+            "SPAM": 1,
+            "Servicios Adicionales": 5,
+            "R.Comentarios Revisados": 4,
+            "Colaboraciones": 3,
+            "Por entregar": 1,
+            "ATENCION AGENTE": 1,
+            "leads frios (no responde)": 2,
+            "Cliente Registrado": 1
+          }
+        },
+        "alerta": {
+          "label": "Sin ventas",
+          "text": "Segunda semana consecutiva sin ningun pedido PrestaShop ni compra GA4 en Ecuador, pese a que el trafico crecio (+12% usuarios). Los leads nuevos de Kommo tambien cayeron a 0 (vs 12 la semana previa)."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 669
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 485
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 288
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 233
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 201
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 140
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 120
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 63
+          }
+        ],
+        "ga4_eventos_nota": "page_view: visita a una pagina. user_engagement: sesion activa con interaccion >10s. view_item_list: vio un listado/categoria de productos. scroll: hizo scroll en la pagina. session_start: inicio de una sesion nueva. first_visit: primera visita de un usuario nuevo. view_item: vio el detalle de un producto especifico. form_start: comenzo a llenar un formulario.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 8
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 4
+          }
+        ],
+        "ga4_eventos_clave_nota": "begin_checkout: inicio el proceso de pago. add_to_cart: agrego un producto al carrito. Ningun begin_checkout se convirtio en compra esta semana (0 purchase).",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 55
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 54
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 43
+          },
+          {
+            "channel": "Unassigned",
+            "sessions": 29
+          },
+          {
+            "channel": "Referral",
+            "sessions": 21
+          },
+          {
+            "channel": "Organic Video",
+            "sessions": 1
+          },
+          {
+            "channel": "Paid Social",
+            "sessions": 1
+          }
+        ],
+        "ga4_articulos": [],
+        "ga4_articulos_nota": "Sin articulos porque no hubo compras completadas esta semana en Ecuador (0 ecommerce_purchases)."
+      },
+      "colombia": {
+        "trafico": {
+          "ga4_usuarios": 90,
+          "ga4_sesiones": 136,
+          "ga4_ingresos_usd": 74.02,
+          "ga4_compras": 3,
+          "prev_ga4_usuarios": 62,
+          "prev_ga4_sesiones": 90,
+          "prev_ga4_ingresos_usd": 0,
+          "prev_ga4_compras": 0
+        },
+        "ventas": {
+          "prestashop_pedidos": 2,
+          "prestashop_total_cop": 274250,
+          "prev_prestashop_pedidos": 0,
+          "prev_prestashop_total_cop": 0
+        },
+        "mensajeria": {
+          "entrantes": 89,
+          "salientes": 59,
+          "prev_entrantes": 18,
+          "prev_salientes": 30,
+          "lapso_mediana_s": 900.1,
+          "prev_lapso_mediana_s": 239.0
+        },
+        "kommo_backlog": null,
+        "canal_mix": {},
+        "funnel_kommo": {
+          "total": 13,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 4,
+          "etapas": {
+            "Por entregar": 3,
+            "Logrado con éxito": 4,
+            "leads Tibios (interacción)": 1,
+            "CAMBIOS Y DEVOLUCIONES": 3,
+            "leads frios (no responde)": 1,
+            "Contacto inicial": 1
+          }
+        },
+        "alerta": {
+          "label": "Recuperacion organica",
+          "text": "Colombia se recupera con fuerza sin inversion en ads: usuarios +45%, sesiones +51%, de 0 a 3 compras GA4 ($74.02) y de 0 a 2 pedidos PrestaShop (274,250 COP). Mensajes entrantes se multiplicaron por 5 (18->89)."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 358
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 237
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 140
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 125
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 112
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 104
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 67
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 62
+          }
+        ],
+        "ga4_eventos_nota": "page_view: visita a una pagina. user_engagement: sesion activa con interaccion >10s. scroll: hizo scroll en la pagina. session_start: inicio de una sesion nueva. view_item_list: vio un listado/categoria de productos. view_item: vio el detalle de un producto especifico. first_visit: primera visita de un usuario nuevo. form_start: comenzo a llenar un formulario.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 19
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 10
+          },
+          {
+            "event_name": "purchase",
+            "event_count": 3
+          },
+          {
+            "event_name": "sign_up",
+            "event_count": 1
+          }
+        ],
+        "ga4_eventos_clave_nota": "begin_checkout: inicio el proceso de pago. add_to_cart: agrego un producto al carrito. purchase: completo una compra. sign_up: se registro como usuario nuevo.",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 50
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 33
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 24
+          },
+          {
+            "channel": "Unassigned",
+            "sessions": 16
+          },
+          {
+            "channel": "Paid Social",
+            "sessions": 9
+          },
+          {
+            "channel": "Referral",
+            "sessions": 5
+          }
+        ],
+        "ga4_articulos": [
+          {
+            "item_name": "Cuaderno El peor crucero es aquel que no zarpó",
+            "items_purchased": 1,
+            "item_revenue": 0
+          },
+          {
+            "item_name": "Cuaderno Estamos rotos y lo roto no se daña",
+            "items_purchased": 1,
+            "item_revenue": 0
+          },
+          {
+            "item_name": "Gorra Girasol",
+            "items_purchased": 1,
+            "item_revenue": 0
+          },
+          {
+            "item_name": "LA PIEL NASA HISTOIRES",
+            "items_purchased": 1,
+            "item_revenue": 0
+          }
+        ],
+        "ga4_articulos_nota": "Los 4 articulos comprados esta semana en Colombia vuelven a registrar item_revenue=$0 en GA4, pese a que el ingreso total de compra si se registra ($74.02) -mismo bug de tracking reportado en semanas anteriores, ya son varias semanas consecutivas sin resolverse. Persiste el problema en el datalayer de co.bouentertainment.com."
+      },
+      "ads": {
+        "meta_spend_usd": 0,
+        "meta_compras": 0,
+        "meta_ingresos_usd": 0,
+        "meta_roas": 0,
+        "meta_cpa_usd": 0,
+        "meta_impresiones": 0,
+        "meta_alcance": 0,
+        "meta_clics": 0,
+        "meta_link_clics": 0,
+        "meta_ctr": 0,
+        "meta_frecuencia": 0,
+        "prev_meta_spend_usd": 0,
+        "prev_meta_compras": 0,
+        "prev_meta_ingresos_usd": 0,
+        "prev_meta_roas": 0,
+        "prev_meta_impresiones": 0,
+        "prev_meta_alcance": 0,
+        "prev_meta_clics": 0,
+        "eficiencia": {
+          "ctr": 0,
+          "cpm": 0,
+          "cpc": 0,
+          "freq_max": 0,
+          "freq_max_adset": "N/A",
+          "cpa": 0,
+          "note": "Segunda semana completa consecutiva sin ninguna actividad en Meta Ads (0 ad sets activos, 0 gasto). La campana 'la piel colombia nuevo' -unica con actividad en las ultimas semanas- sigue pausada desde el 9 de agosto."
+        },
+        "ad_sets": [],
+        "nota": "Meta Ads no registro actividad esta semana (0 ad sets con gasto, confirmado con Windsor.ai para el rango 17-23 ago). Van ya ~20 dias sin inversion publicitaria (desde el 4 de agosto)."
+      },
+      "hallazgos_tecnicos": [
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "daily-log.json sigue subestimando trafico GA4 frente al detalle por canal",
+          "body": "El agregado semanal desde daily-log.json da 103 sesiones (EC) y 56 (COL), pero la consulta directa a Windsor.ai (mismo rango, detalle por canal) suma 204 y 137 respectivamente -practicamente el doble-. Se uso Windsor.ai como fuente primaria para trafico/compras de esta semana, igual que en 2026-W32 y 2026-W33.",
+          "action": "Revisar por que el corte diario (~10:30am / cierre) no captura el trafico completo del dia; evaluar mover el agregado semanal de trafico a Windsor.ai de forma permanente."
+        },
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "item_revenue=$0 en GA4 Colombia sigue sin resolverse",
+          "body": "Los 4 articulos comprados esta semana en Colombia registran item_revenue=$0 en GA4, igual que en semanas anteriores, pese a que el ingreso total de compra si se registra ($74.02). El bug de tracking en el datalayer de co.bouentertainment.com sigue sin escalarse a una solucion.",
+          "action": "Escalar de nuevo con el equipo de desarrollo web -ya son varias semanas reportando el mismo problema sin resolucion."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Corte de fin de semana (sabado/domingo) sigue siendo parcial",
+          "body": "bou-dashboard-diario ya publica los 7 dias de la semana, pero bou-dashboard-cierre (el reproceso con cifras finales) solo corre Lun-Vie. El sabado 22 y domingo 23 de agosto quedaron con el corte de la manana (~10:30am) sin reprocesar, y muestran mensajeria/PrestaShop/Contifico en cero para Ecuador y Colombia esos dos dias -probablemente subestimado, no necesariamente una caida real de actividad.",
+          "action": "Evaluar si vale la pena que bou-dashboard-cierre tambien corra los fines de semana, o al menos marcar mas claramente estos dias como 'parcial' en los reportes derivados."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "A verificar",
+          "title": "kommo_backlog y canal_mix aun no tienen datos",
+          "body": "Los campos nuevos kommo_backlog_ec/col y kommo_canal_mix_ec/col (agregados a la metodologia el 25/ago) todavia no aparecen poblados en ningun dia de data/daily-log.json de esta semana ni de la anterior -se publican como null/{} en esta entrada.",
+          "action": "Confirmar con el equipo tecnico si el pipeline diario ya deberia estar generando estos campos o si el cambio aun esta pendiente de desplegar."
+        }
+      ],
+      "hallazgos_ventas": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Ecuador no vende nada por segunda semana consecutiva",
+          "body": "0 pedidos PrestaShop y 0 compras GA4 en Ecuador esta semana y la anterior, pese a que el trafico crecio +12% en usuarios y +11% en sesiones. Los leads nuevos de Kommo tambien cayeron a 0 (vs 12 la semana previa) -no solo no se vende, tampoco esta entrando pipeline nuevo.",
+          "action": "Revisar el funnel de conversion en Ecuador con urgencia: el trafico esta llegando pero no esta convirtiendo ni dejando datos de contacto."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Meta Ads cumple ~20 dias sin ninguna inversion",
+          "body": "Segunda semana completa consecutiva en $0 de gasto (desde el 4 de agosto). Ninguna campana esta corriendo actualmente en ningun pais.",
+          "action": "Decidir si se reactiva alguna campana o si la estrategia de crecimiento pasa a depender solo de organico por ahora."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Colombia se recupera con fuerza, 100% organico",
+          "body": "Usuarios +45% (62->90), sesiones +51% (90->136), ingresos GA4 de $0 a $74.02, pedidos PrestaShop de 0 a 2 (274,250 COP). Mensajes entrantes se multiplicaron por 5 (18->89).",
+          "action": "Identificar el canal/contenido que impulso el repunte (ver ga4_canales: Direct y Organic Search lideran) para sostenerlo y replicarlo en Ecuador."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "A verificar",
+          "title": "Lapso de respuesta de Kommo en Ecuador se dispara",
+          "body": "El lapso medio de respuesta en Ecuador subio a ~1h46min en promedio esta semana (vs ~19 min la semana previa), con datos muy dispersos (algunos dias sobre las 3 horas). Podria estar relacionado con la caida a 0 ventas.",
+          "action": "Revisar la carga del equipo comercial en Ecuador y el tiempo de respuesta dia a dia, no solo el promedio semanal."
+        }
+      ],
+      "acciones": [
+        {
+          "title": "Auditar el funnel de conversion de Ecuador con urgencia",
+          "body": "2 semanas seguidas sin ventas ni leads nuevos pese a trafico creciente.",
+          "owner": "CEO / Comercial EC",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Decidir el futuro de Meta Ads",
+          "body": "~20 dias sin ninguna inversion publicitaria activa en ningun pais.",
+          "owner": "CEO / Ads",
+          "timing": "Reunion de esta semana"
+        },
+        {
+          "title": "Identificar y replicar el impulso organico de Colombia",
+          "body": "Recuperacion fuerte sin gasto en ads -entender que la genero (contenido, mensajeria, canal) para sostenerla y aplicarla en Ecuador.",
+          "owner": "Marketing",
+          "timing": "Proxima semana"
+        },
+        {
+          "title": "Escalar de nuevo el bug de item_revenue=$0 en Colombia",
+          "body": "Ya son varias semanas reportando el mismo problema de tracking sin resolucion.",
+          "owner": "Web / Desarrollo",
+          "timing": "Proximos dias"
+        },
+        {
+          "title": "Revisar tiempos de respuesta del equipo comercial en Ecuador",
+          "body": "El lapso medio de respuesta se disparo esta semana, en paralelo a la caida a 0 ventas.",
+          "owner": "Comercial EC",
+          "timing": "Esta semana"
+        }
+      ],
+      "notas_verificacion": [
+        "Fuente primaria de mensajeria/PrestaShop/Contifico/Kommo leads: data/daily-log.json (repo separado getbou/bou-dashboard-data desde el 22/ago/2026), sumando los 7 dias de la semana (17-23 ago), todos presentes.",
+        "Trafico y compras GA4 (usuarios, sesiones, ingresos, compras) obtenidos directo de Windsor.ai (conector googleanalytics4, propiedad 414923086) para el rango 17-23 ago, no de daily-log.json, porque el agregado diario sigue subestimando frente al detalle por canal (ver hallazgo tecnico).",
+        "Eventos, canales y articulos GA4, y detalle de ad sets de Meta, obtenidos directo de Windsor.ai para el rango 17-23 ago.",
+        "Semana previa (10-16 ago) tomada de los valores ya publicados en la entrada 2026-W33 (que a su vez uso Windsor.ai como fuente primaria) en vez de re-sumar daily-log.json, porque ese repo solo tiene 5 de los 7 dias de esa semana (falta 15-16 ago).",
+        "lapso_mediana_s y prev_lapso_mediana_s son promedios simples sobre los dias con dato disponible (5 de 7 dias en Ecuador, 4 de 7 en Colombia para la semana actual; muestra aun mas chica en la semana previa) -tratar con cautela, especialmente el promedio de Ecuador que tiene alta dispersion.",
+        "kommo_backlog_ec/col y kommo_canal_mix_ec/col publicados como null/{} -el campo todavia no esta poblado en daily-log.json para ninguno de los dias de esta semana ni de la anterior.",
+        "funnel_kommo reutiliza el snapshot de kommo_funnel_ec/col del 25/ago/2026 (mismo dia, ventana movil 30 dias) sin recalcular via API directa.",
+        "Sabado 22 y domingo 23 de agosto en daily-log.json llevan el corte parcial de la manana (parcial: true, bou-dashboard-cierre no corre fines de semana) -mensajeria/PrestaShop/Contifico de esos 2 dias probablemente estan subestimados para Ecuador y Colombia.",
+        "Verificacion visual de reporte-semanal.html (abrir la pagina y confirmar el selector de semana y las secciones nuevas) queda pendiente de revision manual por Luis -esta corrida programada en la nube no tiene acceso a navegador."
+      ]
     }
   ]
 }
