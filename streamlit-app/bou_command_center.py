@@ -349,7 +349,7 @@ with tab_resumen:
     if "prestashop_total_col_cop" in dfrows:
         fig.add_trace(go.Scatter(x=dfrows["date"], y=dfrows["prestashop_total_col_cop"] / trm, name="Colombia (USD equiv.)", line=dict(color=MINT, width=2)))
     fig = mark_parcial_day(fig, rows, end)
-    st.plotly_chart(plotly_dark_layout(fig), use_container_width=True)
+    st.plotly_chart(plotly_dark_layout(fig), use_container_width=True, key="chart_ingresos_pais")
 
     st.write("")
     st.markdown('<div class="bcc-panel-title">Estado de fuentes</div>', unsafe_allow_html=True)
@@ -430,7 +430,7 @@ with tab_ec:
     fig = go.Figure(go.Scatter(x=dfrows["date"], y=dfrows["contifico_total_usd"], fill="tozeroy",
                                 line=dict(color=GOLD, width=2), fillcolor="rgba(255,182,72,0.28)"))
     fig = mark_parcial_day(fig, rows, end)
-    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True, key="chart_facturacion_diaria")
 
     st.write("")
     panel_header("Kommo", "Ecuador — mensajería, lapso de respuesta, backlog y mezcla de canal")
@@ -457,7 +457,7 @@ with tab_ec:
     dfrows_ec = pd.DataFrame(rows).sort_values("date")
     fig_ec2 = go.Figure(go.Scatter(x=dfrows_ec["date"], y=dfrows_ec["prestashop_total_ec_usd"], line=dict(color=MINT, width=1.5, dash="dot")))
     fig_ec2 = mark_parcial_day(fig_ec2, rows, end)
-    st.plotly_chart(plotly_dark_layout(fig_ec2, height=180), use_container_width=True)
+    st.plotly_chart(plotly_dark_layout(fig_ec2, height=180), use_container_width=True, key="chart_ingresos_web_ec")
 
     st.write("")
     st.write("")
@@ -470,7 +470,7 @@ with tab_ec:
     )
     fig_tk = go.Figure(go.Scatter(x=dfrows_tk["date"], y=dfrows_tk["ticket_dia"], mode="lines+markers", line=dict(color=CORAL, width=2)))
     fig_tk = mark_parcial_day(fig_tk, rows, end)
-    st.plotly_chart(plotly_dark_layout(fig_tk, height=220), use_container_width=True)
+    st.plotly_chart(plotly_dark_layout(fig_tk, height=220), use_container_width=True, key="chart_ticket_dia")
 
     st.write("")
     panel_header("Método de cobro (BE, Contífico)", "cobros[].forma_cobro — solo documentos clasificados como BE, netea facturas con nota de crédito")
@@ -484,7 +484,7 @@ with tab_ec:
         colors = [COBRO_COLORS.get(k, MUTED) for k in cobro_totales.keys()]
         fig = go.Figure(go.Pie(labels=labels, values=list(cobro_totales.values()), hole=0.55,
                                 marker=dict(colors=colors), textinfo="label+percent"))
-        st.plotly_chart(plotly_dark_layout(fig, height=280, showlegend=False), use_container_width=True)
+        st.plotly_chart(plotly_dark_layout(fig, height=280, showlegend=False), use_container_width=True, key="chart_metodo_cobro")
     else:
         st.markdown('<div class="bcc-note-box">sin dato de método de cobro en este rango</div>', unsafe_allow_html=True)
 
@@ -572,7 +572,7 @@ with tab_ec:
             adf = pd.DataFrame([{"artista": k, "monto": v["monto_pvp"], "cantidad": v["cantidad"]} for k, v in art.items()]).sort_values("monto")
             fig = go.Figure(go.Bar(x=adf["monto"], y=adf["artista"], orientation="h", marker_color=CYAN,
                 customdata=adf["cantidad"], hovertemplate="%{y}<br>$%{x:,.2f} PVP<br>%{customdata} uds<extra></extra>"))
-            st.plotly_chart(plotly_dark_layout(fig, height=max(360, 20 * len(adf))), use_container_width=True)
+            st.plotly_chart(plotly_dark_layout(fig, height=max(360, 20 * len(adf))), use_container_width=True, key="chart_inventario_por_artista")
         else:
             st.markdown('<div class="bcc-note-box">sin inventario en los filtros seleccionados</div>', unsafe_allow_html=True)
         if excluidos_n:
@@ -678,7 +678,7 @@ with tab_col:
     fig = go.Figure(go.Scatter(x=dfrows["date"], y=dfrows["prestashop_total_col_cop"], fill="tozeroy",
                                 line=dict(color=MINT, width=2), fillcolor="rgba(79,227,193,0.28)"))
     fig = mark_parcial_day(fig, rows, end)
-    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True, key="chart_ingresos_web_col")
 
     st.write("")
     panel_header("Kommo", "Colombia — mensajería, lapso de respuesta, backlog y mezcla de canal")
@@ -759,7 +759,7 @@ with tab_mkt:
     fig.add_trace(go.Bar(x=dfrows["date"], y=dfrows.get("ga4_sesiones_ec"), name="Ecuador", marker_color=GOLD))
     fig.add_trace(go.Bar(x=dfrows["date"], y=dfrows.get("ga4_sesiones_col"), name="Colombia", marker_color=MINT))
     fig.update_layout(barmode="stack")
-    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+    st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True, key="chart_sesiones_pais_ga4")
 
     st.write("")
     panel_header("Canales de tráfico (GA4)", "sesiones por canal · Ecuador y Colombia por separado, agregado del periodo")
@@ -779,7 +779,7 @@ with tab_mkt:
         if canal_totales_ec:
             cdf = pd.DataFrame(sorted(canal_totales_ec.items(), key=lambda x: -x[1]), columns=["canal", "sesiones"])
             fig_canal_ec = go.Figure(go.Bar(x=cdf["sesiones"], y=cdf["canal"], orientation="h", marker_color=CYAN))
-            st.plotly_chart(plotly_dark_layout(fig_canal_ec, height=220), use_container_width=True)
+            st.plotly_chart(plotly_dark_layout(fig_canal_ec, height=220), use_container_width=True, key="chart_canales_ga4_ec")
         else:
             st.markdown('<div class="bcc-note-box">sin dato de canales GA4 EC en el periodo seleccionado</div>', unsafe_allow_html=True)
     with colcol:
@@ -787,7 +787,7 @@ with tab_mkt:
         if canal_totales_col:
             cdf = pd.DataFrame(sorted(canal_totales_col.items(), key=lambda x: -x[1]), columns=["canal", "sesiones"])
             fig_canal_col = go.Figure(go.Bar(x=cdf["sesiones"], y=cdf["canal"], orientation="h", marker_color=LILAC))
-            st.plotly_chart(plotly_dark_layout(fig_canal_col, height=220), use_container_width=True)
+            st.plotly_chart(plotly_dark_layout(fig_canal_col, height=220), use_container_width=True, key="chart_canales_ga4_col")
         else:
             st.markdown('<div class="bcc-note-box">sin dato de canales GA4 COL en el periodo seleccionado</div>', unsafe_allow_html=True)
 
@@ -849,7 +849,7 @@ with tab_mkt:
         if has:
             fig = go.Figure(go.Funnel(y=["View item", "Add to cart", "Begin checkout", "Purchase"], x=[vi, ac, bc, pu],
                                        marker=dict(color=[CYAN, GOLD, BLUE, MINT])))
-            st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+            st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True, key="chart_eventos_clave_ec")
         else:
             st.markdown('<div class="bcc-note-box">sin dato de eventos clave GA4 EC en el periodo seleccionado</div>', unsafe_allow_html=True)
     with colcol3:
@@ -858,7 +858,7 @@ with tab_mkt:
         if has:
             fig = go.Figure(go.Funnel(y=["View item", "Add to cart", "Begin checkout", "Purchase"], x=[vi, ac, bc, pu],
                                        marker=dict(color=[CYAN, GOLD, BLUE, MINT])))
-            st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True)
+            st.plotly_chart(plotly_dark_layout(fig, height=260), use_container_width=True, key="chart_eventos_clave_col")
         else:
             st.markdown('<div class="bcc-note-box">sin dato de eventos clave GA4 COL en el periodo seleccionado</div>', unsafe_allow_html=True)
 
@@ -876,7 +876,7 @@ with tab_mkt:
         bar_colors = [CORAL if f > 5 else BLUE for f in fdf["frequency"]]
         fig_freq = go.Figure(go.Bar(x=fdf["frequency"], y=fdf["ad set"], orientation="h", marker_color=bar_colors))
         fig_freq.add_vline(x=5, line_width=1, line_dash="dash", line_color=CORAL)
-        st.plotly_chart(plotly_dark_layout(fig_freq, height=max(200, 30 * len(fdf))), use_container_width=True)
+        st.plotly_chart(plotly_dark_layout(fig_freq, height=max(200, 30 * len(fdf))), use_container_width=True, key="chart_adset_frequency")
         n_fatigued = int((fdf["frequency"] > 5).sum())
         if n_fatigued:
             st.caption(f"⚠️ {n_fatigued} ad set(s) por encima de frequency 5 en el periodo.")
