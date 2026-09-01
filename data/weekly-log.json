@@ -2,7 +2,7 @@
   "meta": {
     "descripcion": "Histórico semanal ejecutivo BOU Entertainment (Ecuador + Colombia + Meta Ads). Una entrada por semana, generada cada martes a partir de data/daily-log.json, Kommo API y Windsor.ai.",
     "fuente": "data/daily-log.json (agregado por semana) + Kommo API v4 (funnel, conteo por leads creados en la semana) + Windsor.ai (Meta Ads + GA4)",
-    "ultima_actualizacion": "2026-07-31"
+    "ultima_actualizacion": "2026-09-01"
   },
   "weeks": [
     {
@@ -1429,6 +1429,446 @@
         "leads_nuevos_kommo_api aproximado con la suma de kommo_leads_ec/col de daily-log.json sobre los 5 dias disponibles.",
         "Meta Ads: 0 ad sets activos confirmado con Windsor.ai (connector facebook) tanto para el rango 10-16 ago como con date_preset last_7dT.",
         "Colombia tuvo 0 compras reales esta semana; no se pudo verificar si el bug de item_revenue=$0 (reportado semanas anteriores) sigue presente."
+      ]
+    },
+    {
+      "week_id": "2026-W35",
+      "week_start": "2026-08-24",
+      "week_end": "2026-08-30",
+      "week_start_prev": "2026-08-17",
+      "week_end_prev": "2026-08-23",
+      "generated_at": "2026-09-01",
+      "generated_note": "Semana completa (lunes 24 a domingo 30 de agosto), comparada contra la semana previa completa (17-23 ago). Nota: la entrada 2026-W34 nunca se genero en este historico (la tarea programada no corrio esa semana, coincide con la migracion de infraestructura del 22/ago) — los datos 'prev_*' de esta entrada se calcularon directamente desde data/daily-log.json y Windsor.ai para el rango 17-23 ago, no desde una entrada previa del weekly-log. Generado de forma 100% autonoma en la nube (sin dispositivo local): GitHub via git+MCP, GA4 via Windsor.ai en vivo, Kommo/PrestaShop/Contifico via data/daily-log.json (getbou/bou-dashboard-data).",
+      "headline": "Colombia se desploma a <em>cero ventas</em> mientras Ecuador logra sus primeras compras en semanas",
+      "headline_html": "Semana del <em>24</em> al 30 de agosto.",
+      "subtitle": "Reporte ejecutivo Ecuador + Colombia + Meta Ads, semana completa (24-30 ago) comparada contra la semana previa completa (17-23 ago).",
+      "resumen_lead": "Semana de dos historias opuestas. Ecuador repunta: de 0 a <strong>8 leads nuevos</strong> en Kommo, mensajes entrantes <strong>+231%</strong> y las primeras <strong>2 compras</strong> registradas en GA4 en semanas ($54.13), aunque PrestaShop sigue sin registrar ningun pedido valido. Colombia, en cambio, se desploma: <strong>0 pedidos PrestaShop</strong> (vs 2 la semana previa), <strong>0 compras GA4</strong> (vs 3), Contifico factura 87% menos, y el tiempo de respuesta a mensajes se triplico (900s a 2,633s) mientras los mensajes salientes cayeron 56%. La automatizacion tambien mostro grietas esta semana: el cierre de 6pm no corrio el viernes 28/ago, el conector de Meta Ads en Windsor.ai se desconecto por limite del plan Free, y el snapshot de embudo Kommo del fin de semana salio corrupto. Los numeros de trafico de esta entrada vienen de una consulta en vivo a Windsor.ai (no del corte diario de ~11am, que subestimo el trafico real hasta un 80% esta semana) — ver notas de verificacion.",
+      "resumen_insights": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Colombia se cae a 0 ventas en las dos fuentes que las miden",
+          "body": "0 pedidos PrestaShop (2 la semana previa) y 0 compras GA4 (3 la semana previa), pese a que el trafico se mantuvo estable (-6.6% sesiones). Contifico facturo <strong>87% menos</strong> ($64.98 vs $499.75, agregado EC+COL). Coincide con una caida de 56% en mensajes salientes y el tiempo de respuesta triplicandose (900s a 2,633s)."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "La automatizacion diaria mostro varias fallas esta semana",
+          "body": "El cierre de 6pm no proceso el viernes 28/ago (sigue marcado parcial 4 dias despues), el conector Meta Ads de Windsor.ai se desconecto por el limite del plan Free (deja de recibirse el sabado 29), y el snapshot de embudo Kommo del fin de semana salio con IDs numericos crudos en vez de nombres de etapa."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Ecuador repunta con fuerza",
+          "body": "De 0 a <strong>8 leads nuevos</strong> Kommo, mensajes entrantes <strong>+231%</strong> (32→106) y las primeras <strong>2 compras</strong> GA4 en semanas ($54.13). El tiempo de respuesta tambien mejoro 55% (6,345s→2,823s), aunque el backlog sin responder cerro el viernes en 19 mensajes — el volumen esta empezando a superar la capacidad de respuesta."
+        }
+      ],
+      "ecuador": {
+        "trafico": {
+          "ga4_usuarios": 198,
+          "ga4_sesiones": 219,
+          "ga4_ingresos_usd": 54.13,
+          "ga4_compras": 2,
+          "prev_ga4_usuarios": 168,
+          "prev_ga4_sesiones": 204,
+          "prev_ga4_ingresos_usd": 0,
+          "prev_ga4_compras": 0
+        },
+        "ventas": {
+          "prestashop_pedidos": 0,
+          "prestashop_total_usd": 0,
+          "prev_prestashop_pedidos": 0,
+          "prev_prestashop_total_usd": 0
+        },
+        "mensajeria": {
+          "entrantes": 106,
+          "salientes": 64,
+          "prev_entrantes": 32,
+          "prev_salientes": 41,
+          "lapso_mediana_s": 2822.7,
+          "prev_lapso_mediana_s": 6344.7
+        },
+        "kommo_backlog": 19,
+        "canal_mix": {
+          "Instagram DM": 70,
+          "WhatsApp": 3
+        },
+        "funnel_kommo": {
+          "total": 138,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 8,
+          "etapas": {
+            "Reacciones y Comentarios": 89,
+            "leads Tibios (interacción)": 20,
+            "Leads perdidos": 7,
+            "SPAM": 1,
+            "Servicios Adicionales": 6,
+            "R.Comentarios Revisados": 4,
+            "Leads ganados": 3,
+            "Colaboraciones": 3,
+            "Por entregar": 1,
+            "ATENCION AGENTE": 1,
+            "leads frios (no responde)": 2,
+            "Cliente Registrado": 1
+          }
+        },
+        "alerta": {
+          "label": "Recuperacion con backlog creciendo",
+          "text": "Ecuador repunta con fuerza (8 leads nuevos, mensajes +231%, primeras compras GA4 en semanas) pero el backlog de mensajes sin responder cerro el viernes en 19 — el volumen esta empezando a superar la capacidad de respuesta del equipo."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 675
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 448
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 247
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 234
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 215
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 177
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 112
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 61
+          }
+        ],
+        "ga4_eventos_nota": "page_view: visita a una pagina. user_engagement: sesion activa con interaccion >10s. view_item_list: vio un listado/categoria de productos. scroll: hizo scroll en la pagina. session_start: inicio de una sesion nueva. first_visit: primera visita de un usuario nuevo. view_item: vio el detalle de un producto especifico. form_start: comenzo a llenar un formulario.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 21
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 17
+          },
+          {
+            "event_name": "purchase",
+            "event_count": 2
+          }
+        ],
+        "ga4_eventos_clave_nota": "begin_checkout: inicio el proceso de pago. add_to_cart: agrego un producto al carrito. purchase: completo una compra.",
+        "ga4_canales": [
+          {
+            "channel": "Organic Social",
+            "sessions": 84
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 64
+          },
+          {
+            "channel": "Direct",
+            "sessions": 58
+          },
+          {
+            "channel": "Referral",
+            "sessions": 12
+          },
+          {
+            "channel": "Paid Social",
+            "sessions": 1
+          }
+        ],
+        "ga4_articulos": [
+          {
+            "item_name": "Camiseta Meta More Fuzz",
+            "items_purchased": 1,
+            "item_revenue": 17.25
+          },
+          {
+            "item_name": "Vinilo Flora Nasa Histoires",
+            "items_purchased": 1,
+            "item_revenue": 45
+          }
+        ],
+        "ga4_articulos_nota": "Las 2 compras GA4 de esta semana en Ecuador no tienen pedido correspondiente en estado valido en PrestaShop (0 pedidos_ec) — ver hallazgo tecnico sobre la discrepancia GA4 vs PrestaShop."
+      },
+      "colombia": {
+        "trafico": {
+          "ga4_usuarios": 108,
+          "ga4_sesiones": 128,
+          "ga4_ingresos_usd": 0,
+          "ga4_compras": 0,
+          "prev_ga4_usuarios": 97,
+          "prev_ga4_sesiones": 137,
+          "prev_ga4_ingresos_usd": 74.02,
+          "prev_ga4_compras": 3
+        },
+        "ventas": {
+          "prestashop_pedidos": 0,
+          "prestashop_total_cop": 0,
+          "prev_prestashop_pedidos": 2,
+          "prev_prestashop_total_cop": 274250
+        },
+        "mensajeria": {
+          "entrantes": 39,
+          "salientes": 26,
+          "prev_entrantes": 89,
+          "prev_salientes": 59,
+          "lapso_mediana_s": 2632.9,
+          "prev_lapso_mediana_s": 900.1
+        },
+        "kommo_backlog": 1,
+        "canal_mix": {
+          "WhatsApp": 41
+        },
+        "funnel_kommo": {
+          "total": 17,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 0,
+          "etapas": {
+            "Por entregar": 3,
+            "Logrado con éxito": 5,
+            "leads Tibios (interacción)": 1,
+            "CAMBIOS Y DEVOLUCIONES": 3,
+            "leads frios (no responde)": 1,
+            "leads Calientes (datos bancarios)": 2,
+            "REACCIONES Y COMENTARIOS": 1,
+            "Ventas Perdidos": 1
+          }
+        },
+        "alerta": {
+          "label": "Alerta critica",
+          "text": "Colombia cae a 0 ventas en las dos fuentes que las miden: 0 pedidos PrestaShop (2 la semana previa) y 0 compras GA4 (3 la semana previa), con trafico estable. Coincide con una caida de 56% en mensajes salientes y el tiempo de respuesta triplicandose (900s a 2,633s)."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 334
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 242
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 158
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 148
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 119
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 78
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 76
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 22
+          }
+        ],
+        "ga4_eventos_nota": "page_view: visita a una pagina. user_engagement: sesion activa con interaccion >10s. view_item_list: vio un listado/categoria de productos. scroll: hizo scroll en la pagina. session_start: inicio de una sesion nueva. first_visit: primera visita de un usuario nuevo. view_item: vio el detalle de un producto especifico. form_start: comenzo a llenar un formulario.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 6
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 4
+          }
+        ],
+        "ga4_eventos_clave_nota": "begin_checkout: inicio el proceso de pago. add_to_cart: agrego un producto al carrito. 0 purchase esta semana pese a 6 begin_checkout — abandono total en el paso final de pago.",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 59
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 37
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 14
+          },
+          {
+            "channel": "Paid Social",
+            "sessions": 11
+          },
+          {
+            "channel": "Referral",
+            "sessions": 7
+          }
+        ],
+        "ga4_articulos": [],
+        "ga4_articulos_nota": "0 articulos comprados esta semana en Colombia (0 eventos purchase) — no hay item_revenue que evaluar. No se repite el bug de item_revenue=$0 de semanas anteriores porque simplemente no hubo compras."
+      },
+      "ads": {
+        "meta_spend_usd": 0,
+        "meta_compras": 0,
+        "meta_ingresos_usd": 0,
+        "meta_roas": null,
+        "meta_cpa_usd": null,
+        "meta_impresiones": 0,
+        "meta_alcance": 0,
+        "meta_clics": 0,
+        "meta_link_clics": 0,
+        "meta_ctr": null,
+        "meta_frecuencia": null,
+        "prev_meta_spend_usd": 0,
+        "prev_meta_compras": 0,
+        "prev_meta_ingresos_usd": 0,
+        "prev_meta_roas": null,
+        "prev_meta_impresiones": 0,
+        "prev_meta_alcance": 0,
+        "prev_meta_clics": 0,
+        "eficiencia": {
+          "ctr": null,
+          "cpm": null,
+          "cpc": null,
+          "freq_max": null,
+          "freq_max_adset": null,
+          "cpa": null,
+          "note": "Sin gasto activo en Meta Ads en ninguna de las 2 semanas (12 de 14 dias con dato final, todos en $0) — no hay metricas de eficiencia que calcular."
+        },
+        "ad_sets": [],
+        "nota": "Meta Ads sigue en $0 de gasto por 2 semanas consecutivas segun data/daily-log.json. No se pudo verificar con el detalle por ad set de Windsor.ai porque el conector 'facebook' aparece desconectado de la cuenta de Windsor.ai (limite de cuentas conectadas del plan Free, documentado desde el 31/ago) — solo el conector 'googleanalytics4' esta activo actualmente. Si la marca reactiva alguna campana, este monitoreo semanal quedara ciego a nivel de ad set hasta reconectar Meta Ads en Windsor.ai."
+      },
+      "hallazgos_tecnicos": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "El cierre de 6pm no proceso el viernes 28 de agosto",
+          "body": "La fila del 28/ago en data/daily-log.json sigue marcada <code>parcial: true</code> 4 dias despues (deberia haberse reprocesado esa misma noche con bou-dashboard-cierre). Los numeros de ese dia (PrestaShop, Contifico, Kommo) podrian estar subestimados respecto al dia completo.",
+          "action": "Revisar por que bou-dashboard-cierre no corrio el 28/ago y si necesita un reproceso manual de esa fecha."
+        },
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "El conector Meta Ads (facebook) de Windsor.ai esta desconectado",
+          "body": "get_connectors solo devuelve el conector 'googleanalytics4' activo hoy; un commit del 31/ago ya documentaba el error 'connected more accounts than your Free plan allows'. No se pudo confirmar en vivo el detalle por ad set esta semana — el reporte usa los $0 de daily-log.json, consistentes en los 12 dias con dato final de las 2 semanas, pero sin visibilidad a nivel de ad set si una campana se reactiva.",
+          "action": "Actualizar el plan de Windsor.ai o reconectar Meta Ads para no perder visibilidad de ads en el proximo ciclo semanal."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "El corte diario (~11am) subestimo el trafico real hasta 80% esta semana",
+          "body": "Ejemplo del 24/ago: data/daily-log.json registro 11 usuarios EC, pero la consulta en vivo a Windsor.ai (dia completo) muestra 52 — 4.7x mas. Ademas, el sabado 29 y domingo 30 de agosto quedaron sin ningun dato de GA4/Meta en daily-log.json (ver hallazgo del conector desconectado). Por eso esta entrada usa Windsor.ai en vivo como fuente primaria de trafico para ambas semanas (actual y previa), no la suma de daily-log.json.",
+          "action": "Evaluar mover el corte diario a fin de dia o usar Windsor.ai como fuente primaria de trafico en la tarea diaria tambien."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Snapshot de embudo Kommo del fin de semana salio corrupto",
+          "body": "kommo_funnel_ec/col del 29 y 30 de agosto tiene IDs de status numericos crudos (ej. '79590128') en vez de nombres legibles ('Reacciones y Comentarios'), a diferencia de todos los dias anteriores. Se uso el snapshot limpio del 28/ago en su lugar (2 dias de antiguedad, dentro del umbral de la metodologia).",
+          "action": "Revisar el paso de resolucion de status_id a nombre en la tarea diaria de fin de semana — probablemente relacionado con el mismo problema de conectividad del fin de semana."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Discrepancia GA4 vs PrestaShop en Ecuador",
+          "body": "GA4 registra 2 compras / $54.13 esta semana en Ecuador, pero PrestaShop no tiene ningun pedido en estado valido (0). Podria ser un metodo de pago fuera del filtro de estados validos, o el evento 'purchase' disparandose antes de confirmar el pago.",
+          "action": "Cruzar manualmente las 2 transacciones GA4 del 26 y 28/ago con PrestaShop para confirmar si son ventas reales no contabilizadas o un problema de tracking."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "La semana 2026-W34 (17-23 ago) nunca se genero en el historico",
+          "body": "weekly-log.json salta de 2026-W33 (generado el 18/ago) directo a esta entrada (2026-W35) — la tarea programada no corrio el martes 25/ago, probablemente por la migracion de infraestructura de esa semana (repo de datos nuevo, restricciones del proxy de escritura). Los datos 'prev_*' de esta entrada se recalcularon directo desde data/daily-log.json y Windsor.ai para el rango 17-23 ago.",
+          "action": "Backfillear 2026-W34 solo si Luis lo pide explicitamente; de lo contrario dejar el hueco documentado."
+        }
+      ],
+      "hallazgos_ventas": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Colombia se cae a 0 ventas en las dos fuentes que las miden",
+          "body": "0 pedidos PrestaShop (2 la semana previa, -100%) y 0 compras GA4 (3 la semana previa, -100%), con trafico estable (-6.6% sesiones). Contifico facturo 87% menos ($64.98 vs $499.75, agregado EC+COL). El GA4 de Colombia muestra 6 begin_checkout y 4 add_to_cart pero 0 purchase — abandono total en el paso final de pago.",
+          "action": "Investigar de inmediato si es un problema de checkout/pago en co.bouentertainment.com, una caida de demanda real, o ambos."
+        },
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Colombia: mensajes salientes -56% y tiempo de respuesta triplicado",
+          "body": "Mensajes salientes cayeron de 59 a 26 (-55.9%) y el tiempo mediano de respuesta paso de 900s a 2,633s (+192.5%), justo la semana que las ventas se desplomaron a 0. Backlog sin responder al cierre del 28/ago: 1 (bajo, pero el patron de respuesta lenta es la senal de alerta).",
+          "action": "Revisar si el equipo comercial de Colombia tuvo baja disponibilidad esta semana (vacaciones, ausencias) y si eso explica la caida de ventas en paralelo."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Ecuador repunta con fuerza en leads, mensajeria y primeras ventas",
+          "body": "De 0 a 8 leads nuevos Kommo, mensajes entrantes +231% (32→106), tiempo de respuesta 55% mas rapido (6,345s→2,823s), y las primeras 2 compras GA4 en semanas ($54.13, aunque sin match en PrestaShop — ver hallazgo tecnico).",
+          "action": "Monitorear si el repunte se sostiene la proxima semana e identificar que lo genero para replicarlo en Colombia."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Backlog de mensajes sin responder en Ecuador sube a 19",
+          "body": "Pese a que el tiempo de respuesta promedio mejoro, el backlog sin responder cerro el viernes 28/ago en 19 mensajes — el salto de +231% en mensajes entrantes esta empezando a superar la capacidad de respuesta del equipo.",
+          "action": "Reforzar la atencion de mensajes en Ecuador antes de que el backlog se acumule mas."
+        }
+      ],
+      "acciones": [
+        {
+          "title": "Investigar el desplome de Colombia a 0 ventas",
+          "body": "0 pedidos PrestaShop y 0 compras GA4 esta semana (vs 2 y 3 la semana previa), con 6 begin_checkout sin ninguna compra completada.",
+          "owner": "Comercial COL / CEO",
+          "timing": "Urgente, esta semana"
+        },
+        {
+          "title": "Revisar la disponibilidad del equipo comercial de Colombia",
+          "body": "Mensajes salientes -56% y tiempo de respuesta triplicado (900s→2,633s) la misma semana que las ventas cayeron a 0.",
+          "owner": "Comercial COL",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Reconectar o actualizar el plan de Windsor.ai para restaurar Meta Ads",
+          "body": "El conector 'facebook' esta desconectado por limite del plan Free — solo queda activo 'googleanalytics4'. Sin esto, el proximo reporte semanal quedara ciego a nivel de ad set si se reactiva una campana.",
+          "owner": "Marketing / Operaciones",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Revisar por que bou-dashboard-cierre no corrio el 28/ago",
+          "body": "La fila de ese dia sigue marcada parcial 4 dias despues; podria estar subestimando PrestaShop/Contifico/Kommo de ese dia especifico.",
+          "owner": "Operaciones / Automatizacion",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Reforzar la atencion de mensajes en Ecuador",
+          "body": "Backlog sin responder cerro el viernes en 19 mensajes tras un salto de +231% en mensajes entrantes.",
+          "owner": "Comercial EC",
+          "timing": "Inmediato"
+        }
+      ],
+      "notas_verificacion": [
+        "Trafico (GA4 usuarios/sesiones/ingresos/compras) de esta entrada: consulta en vivo a Windsor.ai (conector googleanalytics4, propiedad 414923086) para ambas semanas (24-30 ago y 17-23 ago), NO la suma de data/daily-log.json — el corte diario (~11am) subestimo el trafico real hasta 80% esta semana y ademas faltaban por completo el sabado 29 y domingo 30 de agosto. Se aplico el mismo metodo a las 2 semanas para mantener la comparacion consistente.",
+        "GA4 eventos/canales/articulos: consulta en vivo a Windsor.ai (conector googleanalytics4) para el rango 24-30 ago, excluyendo el hostname nasa-histoires.myshopify.com (no es de BOU).",
+        "Meta Ads: el conector 'facebook' de Windsor.ai aparece desconectado (limite del plan Free, confirmado con get_connectors) — los valores de spend/compras/impresiones vienen de la suma de data/daily-log.json (consistentemente $0 en los 12 de 14 dias con dato final de las 2 semanas). No se pudo verificar detalle por ad set.",
+        "funnel_kommo (EC y COL) reutiliza el snapshot de kommo_funnel_ec/col del 2026-08-28 (ventana movil 30 dias) — es el ultimo snapshot con nombres de status legibles; los del 29 y 30 de agosto salieron con IDs numericos crudos. Antiguedad de 2 dias, dentro del umbral de la metodologia.",
+        "kommo_backlog (EC=19, COL=1) toma el snapshot del 2026-08-28 por el mismo motivo — es el ultimo dia con dato real dentro de la semana (29 y 30 quedaron sin dato).",
+        "canal_mix se sumo dia por dia desde data/daily-log.json (kommo_canal_mix_ec/col) sobre los dias con dato disponible dentro de cada semana; el campo no existia todavia en la semana previa completa (17-23 ago), por eso no hay comparacion prev_canal_mix en el esquema.",
+        "La entrada 2026-W34 (17-23 ago) no existe en el historico de weekly-log.json — la tarea programada no corrio esa semana (coincide con la migracion de infraestructura del 22/ago: repo de datos nuevo, restriccion de escritura del proxy). Los 'prev_*' de esta entrada se calcularon directo desde data/daily-log.json y Windsor.ai, no desde una entrada previa del weekly-log. No se genero 2026-W34 retroactivamente porque el alcance de esta tarea es solo la semana que acaba de terminar.",
+        "data/daily-log.json (repo privado getbou/bou-dashboard-data) se leyo via git clone autenticado en lugar de la API REST de GitHub, porque el archivo (1.25MB) excede el limite de decodificacion base64 de la herramienta MCP de GitHub disponible en esta sesion.",
+        "Verificacion visual del reporte-semanal.html publicado (selector de semana, secciones nuevas) queda pendiente de revision manual por Luis — no hay navegador disponible en esta ejecucion en la nube.",
+        "Se uso el PAT de GitHub embebido en la tarea solo para lectura/escritura sobre los 2 repos de BOU (bou-dashboard y bou-dashboard-data) via git; las llamadas a Kommo y Contifico mencionadas en la version original de la tarea no fueron necesarias esta semana porque toda la data requerida ya estaba en data/daily-log.json o Windsor.ai."
       ]
     }
   ]
