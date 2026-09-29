@@ -2725,6 +2725,455 @@
         "weekly-log.json (repo publico getbou/bou-dashboard) se escribio via la herramienta MCP de GitHub sobre una rama de trabajo, con PR contra main mergeado en la misma corrida.",
         "Verificacion visual del reporte-semanal.html publicado (selector de semana, secciones nuevas) queda pendiente de revision manual por Luis — no hay navegador disponible en esta ejecucion en la nube."
       ]
+    },
+    {
+      "week_id": "2026-W39",
+      "week_start": "2026-09-21",
+      "week_end": "2026-09-27",
+      "week_start_prev": "2026-09-14",
+      "week_end_prev": "2026-09-20",
+      "generated_at": "2026-09-29",
+      "generated_note": "Semana completa (lunes 21 a domingo 27 de septiembre) vs semana previa completa (14-20 sep). Sabados y domingos llevan solo el corte de la manana (parcial=true). Generado autonomamente en la nube: daily-log.json via git (getbou/bou-dashboard-data), GA4 via Windsor.ai en vivo. IMPORTANTE: weekly-log.json no tenia las semanas 2026-W37 (7-13 sep) ni 2026-W38 (14-20 sep) publicadas; esta corrida solo genera W39.",
+      "headline": "Kommo Ecuador <em>cae a 39 mensajes entrantes</em> (-55%) mientras Colombia vende online por segunda semana y el backlog sigue alto",
+      "headline_html": "Semana del <em>21 al 27 de septiembre</em>.",
+      "subtitle": "Reporte ejecutivo Ecuador + Colombia + Meta Ads, semana completa (21-27 sep) comparada contra la semana previa (14-20 sep).",
+      "resumen_lead": "Ecuador sube en trafico (<strong>150 usuarios vs 125, +20%</strong>) y consigue <strong>3 compras GA4 ($27.99)</strong> tras una semana sin ninguna, pero la mensajeria Kommo se enfria: entrantes <strong>-54.7%</strong> (86→39) y salientes <strong>-62%</strong> (50→19), con un lapso de respuesta medido solo un dia (6,171s). Colombia cae en trafico (133→96 usuarios, -27.8%) aunque mantiene 1 compra GA4 ($40.47 vs $105.32) y multiplica por 4.7 sus mensajes entrantes (3→14). Meta Ads sigue en $0 y sin visibilidad de ad sets. Contifico factura $123.67 en 3 documentos (vs $0). Tecnicamente, el corte diario de GA4 sigue en ceros y el conector facebook de Windsor no esta configurado.",
+      "resumen_insights": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Kommo EC: entrantes -54.7% y backlog oscila entre 1 y 36",
+          "body": "Mensajes entrantes 86→<strong>39</strong>, salientes 50→<strong>19</strong>. El backlog sin responder llego a 36 el lunes 21 y cerro la semana en 2, senal de respuestas por rachas. Solo 3 leads nuevos en la semana."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Colombia: menos trafico (-27.8%) y solo 1 compra GA4",
+          "body": "Usuarios 133→<strong>96</strong>, sesiones 196→119. 28 begin_checkout y 19 add_to_cart terminan en 1 purchase. En cambio, mensajes entrantes COL suben de 3 a 14: la demanda se esta moviendo a WhatsApp/Instagram."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Ecuador vuelve a convertir online: 3 compras y $27.99 en GA4",
+          "body": "Tras 0 compras la semana previa, EC registra 3 purchase (16 begin_checkout, 9 add_to_cart). Organic Search (80 sesiones) y Direct (70) lideran; los items vendidos fueron CD Lolabum, Gorra Maquina Camaleon y Hoodie Santa Muerte."
+        }
+      ],
+      "ecuador": {
+        "trafico": {
+          "ga4_usuarios": 150,
+          "ga4_sesiones": 193,
+          "ga4_ingresos_usd": 27.99,
+          "ga4_compras": 3,
+          "prev_ga4_usuarios": 125,
+          "prev_ga4_sesiones": 159,
+          "prev_ga4_ingresos_usd": 0,
+          "prev_ga4_compras": 0
+        },
+        "ventas": {
+          "prestashop_pedidos": 1,
+          "prestashop_total_usd": 24.15,
+          "prev_prestashop_pedidos": 2,
+          "prev_prestashop_total_usd": 22.5
+        },
+        "mensajeria": {
+          "entrantes": 39,
+          "salientes": 19,
+          "prev_entrantes": 86,
+          "prev_salientes": 50,
+          "lapso_mediana_s": 6171.0,
+          "prev_lapso_mediana_s": 102.2
+        },
+        "kommo_backlog": 2,
+        "canal_mix": {
+          "Instagram DM": 42,
+          "WhatsApp": 16
+        },
+        "funnel_kommo": {
+          "total": 84,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 3,
+          "etapas": {
+            "Reacciones y Comentarios": 55,
+            "Servicios Adicionales": 3,
+            "Por registrar y FACTURAR": 1,
+            "leads Tibios (interacción)": 8,
+            "leads Calientes (datos bancarios)": 2,
+            "Por entregar": 2,
+            "Colaboraciones": 2,
+            "ATENCION AGENTE": 1,
+            "Leads ganados": 4,
+            "Nueva consulta": 1,
+            "Sorteos y concursos": 5
+          }
+        },
+        "alerta": {
+          "label": "Mensajeria Kommo en retroceso",
+          "text": "Entrantes 86→39 y salientes 50→19; lapso de respuesta con dato solo 1 de 7 dias (6,171s = ~1.7h), muy por encima de la semana previa (102s)."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 636
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 307
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 248
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 207
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 185
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 123
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 123
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 44
+          }
+        ],
+        "ga4_eventos_nota": "page_view: visita a una pagina. user_engagement: sesion activa con interaccion >10s. scroll: hizo scroll. view_item_list: vio un listado de productos. session_start: inicio de sesion. first_visit: primera visita de un usuario nuevo. view_item: vio el detalle de un producto. form_start: comenzo un formulario.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 16
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 9
+          },
+          {
+            "event_name": "purchase",
+            "event_count": 3
+          },
+          {
+            "event_name": "sign_up",
+            "event_count": 1
+          }
+        ],
+        "ga4_eventos_clave_nota": "begin_checkout: inicio el pago. add_to_cart: agrego al carrito. purchase: compra completada (3 eventos; GA4 reporta 4 transacciones y $27.99, PrestaShop solo 1 pedido valido de $24.15). sign_up: registro de cuenta.",
+        "ga4_canales": [
+          {
+            "channel": "Organic Search",
+            "sessions": 80
+          },
+          {
+            "channel": "Direct",
+            "sessions": 70
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 28
+          },
+          {
+            "channel": "Referral",
+            "sessions": 13
+          },
+          {
+            "channel": "Organic Video",
+            "sessions": 2
+          }
+        ],
+        "ga4_articulos": [
+          {
+            "item_name": "CD LolabúmEl Cielo 10 Años",
+            "items_purchased": 2,
+            "item_revenue": 30
+          },
+          {
+            "item_name": "Gorra Máquina Camaleón x BOU",
+            "items_purchased": 2,
+            "item_revenue": 32.98
+          },
+          {
+            "item_name": "Hoodie Santa Muerte Logo Blanco",
+            "items_purchased": 1,
+            "item_revenue": 24.15
+          }
+        ],
+        "ga4_articulos_nota": "5 unidades vendidas; el ingreso a nivel de item ($87.13) supera el purchase_revenue de transacciones ($27.99), diferencia por descuentos/reembolso (hubo 1 evento refund)."
+      },
+      "colombia": {
+        "trafico": {
+          "ga4_usuarios": 96,
+          "ga4_sesiones": 119,
+          "ga4_ingresos_usd": 40.47,
+          "ga4_compras": 1,
+          "prev_ga4_usuarios": 133,
+          "prev_ga4_sesiones": 196,
+          "prev_ga4_ingresos_usd": 105.32,
+          "prev_ga4_compras": 1
+        },
+        "ventas": {
+          "prestashop_pedidos": 1,
+          "prestashop_total_cop": 42924.37,
+          "prev_prestashop_pedidos": 1,
+          "prev_prestashop_total_cop": 403000
+        },
+        "mensajeria": {
+          "entrantes": 14,
+          "salientes": 20,
+          "prev_entrantes": 3,
+          "prev_salientes": 4,
+          "lapso_mediana_s": 3811.5,
+          "prev_lapso_mediana_s": 19553.0
+        },
+        "kommo_backlog": 1,
+        "canal_mix": {
+          "WhatsApp": 20,
+          "Instagram DM": 14
+        },
+        "funnel_kommo": {
+          "total": 42,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 2,
+          "etapas": {
+            "REACCIONES Y COMENTARIOS": 34,
+            "Por entregar": 2,
+            "Contacto inicial": 4,
+            "Logrado con éxito": 1,
+            "Nueva consulta": 1
+          }
+        },
+        "alerta": {
+          "label": "Menos trafico, mas conversacion",
+          "text": "Usuarios -27.8% y sesiones -39%, pero mensajes entrantes 3→14 y salientes 4→20. 28 begin_checkout vs 1 purchase: el checkout sigue perdiendo casi todo el volumen."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 449
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 225
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 197
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 167
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 124
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 114
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 73
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 42
+          }
+        ],
+        "ga4_eventos_nota": "page_view: visita a una pagina. user_engagement: sesion activa con interaccion >10s. scroll: hizo scroll. view_item_list: vio un listado de productos. session_start: inicio de sesion. first_visit: primera visita de un usuario nuevo. view_item: vio el detalle de un producto. form_start: comenzo un formulario.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 28
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 19
+          },
+          {
+            "event_name": "purchase",
+            "event_count": 1
+          }
+        ],
+        "ga4_eventos_clave_nota": "begin_checkout: inicio el pago. add_to_cart: agrego al carrito. purchase: 1 compra completada ($40.47 USD).",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 52
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 50
+          },
+          {
+            "channel": "Referral",
+            "sessions": 6
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 5
+          },
+          {
+            "channel": "Paid Social",
+            "sessions": 5
+          },
+          {
+            "channel": "AI Assistant",
+            "sessions": 1
+          }
+        ],
+        "ga4_articulos": [
+          {
+            "item_name": "LA PIEL NICOLÁS Y LOS FUMADORES",
+            "items_purchased": 1,
+            "item_revenue": 0
+          }
+        ],
+        "ga4_articulos_nota": "Colombia vuelve a mostrar item_revenue=0 pese a purchase_revenue de $40.47 en GA4: el problema de ingreso por item en COL persiste (verificado esta semana)."
+      },
+      "ads": {
+        "meta_spend_usd": 0,
+        "meta_compras": 0,
+        "meta_ingresos_usd": 0,
+        "meta_roas": null,
+        "meta_cpa_usd": null,
+        "meta_impresiones": 0,
+        "meta_alcance": 0,
+        "meta_clics": 0,
+        "meta_link_clics": 0,
+        "meta_ctr": null,
+        "meta_frecuencia": null,
+        "prev_meta_spend_usd": 0,
+        "prev_meta_compras": 0,
+        "prev_meta_ingresos_usd": 0,
+        "prev_meta_roas": null,
+        "prev_meta_impresiones": 0,
+        "prev_meta_alcance": 0,
+        "prev_meta_clics": 0,
+        "eficiencia": {
+          "ctr": null,
+          "cpm": null,
+          "cpc": null,
+          "freq_max": null,
+          "freq_max_adset": null,
+          "cpa": null,
+          "note": "Sin gasto Meta registrado en daily-log.json (campos $0 o null); el conector facebook de Windsor.ai no tiene cuentas configuradas, asi que no se pudo verificar."
+        },
+        "ad_sets": [],
+        "nota": "Windsor.ai respondio 'No facebook accounts are configured' para la cuenta 877286016115641. Los valores vienen de data/daily-log.json ($0/null). Sin visibilidad de ad sets. Ojo: GA4 registro 5 sesiones Paid Social en COL, por lo que puede haber alguna pauta activa no reflejada."
+      },
+      "hallazgos_tecnicos": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Conector Meta (facebook) sin cuentas en Windsor.ai",
+          "body": "get_data facebook devuelve 'No facebook accounts are configured'. Sin esto no hay ad sets, frecuencia ni ROAS. GA4 muestra sesiones Paid Social en COL, asi que hay pauta o etiquetas que no vemos.",
+          "action": "Reconectar la cuenta 877286016115641 en onboard.windsor.ai?datasource=facebook."
+        },
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "El corte diario de GA4 sigue en ceros",
+          "body": "ga4_usuarios/sesiones en daily-log.json: EC 0-7 usuarios/dia vs 150 semanales reales en Windsor (24/sep en 0). El trafico de este reporte sale de Windsor en vivo.",
+          "action": "Corregir la captura GA4 de la tarea diaria."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Semanas W37 y W38 ausentes en weekly-log.json",
+          "body": "El ultimo registro publicado era 2026-W36. Esta corrida agrega solo W39.",
+          "action": "Decidir si se hace backfill de W37 y W38."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "PrestaShop COL: total semanal de 42,924 COP luce inconsistente",
+          "body": "Vs 403,000 COP de la semana previa; 42,924 COP (~$10 USD) puede ser una conversion errada; GA4 reporta $40.47 USD.",
+          "action": "Revisar el pedido COL del 24/sep."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "Fines de semana parciales",
+          "body": "Sabado y domingo llevan solo el corte de la manana, y el lapso de respuesta EC tiene dato solo 1 de 7 dias.",
+          "action": "Interpretar fines de semana y lapsos con cautela."
+        }
+      ],
+      "hallazgos_ventas": [
+        {
+          "tag": "critical",
+          "tagLabel": "Critico",
+          "title": "Mensajeria EC -54.7% y backlog con picos de 36",
+          "body": "Entrantes 86→39, salientes 50→19, solo 3 leads nuevos; backlog 36 el lunes 21.",
+          "action": "Asegurar cobertura de respuesta diaria del equipo comercial."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Atencion",
+          "title": "COL: 28 inicios de checkout, 1 compra",
+          "body": "Trafico -27.8% y checkout sin cerrar; la conversacion sube (14 entrantes, 20 salientes).",
+          "action": "Revisar el flujo de pago COL y dar seguimiento por WhatsApp a quienes abandonan."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "EC convierte con producto de catalogo cultural",
+          "body": "CD Lolabum, Gorra Maquina Camaleon y Hoodie Santa Muerte sumaron 5 unidades; Organic Search es el canal #1 (80 sesiones).",
+          "action": "Reforzar SEO/contenido de esos productos."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Contifico factura $123.67 en 3 documentos",
+          "body": "Recupera la actividad tras $0 la semana previa.",
+          "action": "Confirmar a que ventas corresponden (B2B/fulfillment)."
+        }
+      ],
+      "acciones": [
+        {
+          "title": "Reconectar Meta Ads en Windsor.ai",
+          "body": "Cuenta 877286016115641; sin esto no hay lectura de pauta.",
+          "owner": "Luis",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Cobertura de respuesta en Kommo EC",
+          "body": "Bajar picos de backlog (36 el lunes) y recuperar volumen de mensajes.",
+          "owner": "Comercial EC",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Auditar checkout Colombia",
+          "body": "28 begin_checkout vs 1 compra.",
+          "owner": "Marketing / Tecnico",
+          "timing": "Proximos 7 dias"
+        },
+        {
+          "title": "Arreglar corte GA4 diario y revisar total PrestaShop COL",
+          "body": "Ceros persistentes y total COP sospechoso.",
+          "owner": "Luis",
+          "timing": "Proximos 7 dias"
+        },
+        {
+          "title": "Decidir backfill W37/W38",
+          "body": "Semanas ausentes del historico.",
+          "owner": "Luis",
+          "timing": "Cuando pueda"
+        }
+      ],
+      "notas_verificacion": [
+        "Trafico GA4 (usuarios/sesiones/ingresos): Windsor.ai en vivo (googleanalytics4, 414923086) para ambas semanas, no la suma del daily-log. Ingresos = purchase_revenue; compras = eventos purchase (GA4 reporta 4 transacciones en EC).",
+        "Kommo, PrestaShop y Contifico: suma de data/daily-log.json (getbou/bou-dashboard-data) lunes-domingo; funnel = snapshot del 28/sep. Lapso EC/COL = promedio de los dias con dato (EC 1 de 7 dias).",
+        "Meta Ads: conector facebook no disponible en Windsor; valores $0 del daily-log, sin ad sets.",
+        "Google Sheets Matriz Ventas Colombia no consultada en esta corrida.",
+        "Verificacion visual de reporte-semanal.html omitida (sin navegador en cloud): pendiente de revision manual de Luis.",
+        "Semanas W37 y W38 no existen en weekly-log.json."
+      ]
     }
   ]
 }
