@@ -426,6 +426,7 @@ const EC_PIPELINE_ORDER = ["Leads Entrantes","Contacto inicial","Nueva consulta"
 const EC_NON_SALES_STAGES = ["CONFIRMADOS EVENTOS","BOU SESSION","Sorteos y concursos","Servicios Adicionales","Reacciones y Comentarios","R.Comentarios Revisados","Colaboraciones","SPAM"];
 const COL_PIPELINE_ORDER = ["Leads Entrantes","Contacto inicial","Nueva consulta","ATENCION AGENTE","leads frios (no responde)","leads Tibios (interacción)","leads Calientes (datos bancarios)","Por registrar","Por entregar","CAMBIOS Y DEVOLUCIONES","ERROR ENVIAR MENSAJE","CONFIRMADOS","Logrado con éxito","Ventas Perdidos"];
 
+function nf(v,d){ return (v===null||v===undefined||isNaN(v)) ? '—' : Number(v).toFixed(d); }
 function fmtInt(n) { return Math.round(n||0).toLocaleString('es-EC'); }
 function fmtUsd(n) { return '$' + Number(n||0).toLocaleString('es-EC', {minimumFractionDigits:2, maximumFractionDigits:2}); }
 function fmtCop(n) { return '$' + Math.round(n||0).toLocaleString('es-CO') + ' COP'; }
@@ -553,10 +554,10 @@ function renderEficiencia(ef) {
   const el = document.getElementById('adsEficiencia');
   if (!ef) { el.innerHTML = '<div style="color:var(--ink-mute); font-size:13px;">Sin datos</div>'; return; }
   const rows = [
-    {label:'CTR total', value: ef.ctr.toFixed(2)+'%', pct: Math.min(100, ef.ctr*20), status: ef.ctr>=3 ? ['Bueno','var(--green)'] : ef.ctr>=1.5 ? ['Regular','var(--accent-2)'] : ['Bajo','var(--red)']},
-    {label:'CPM', value: '$'+ef.cpm.toFixed(2), pct: Math.min(100, ef.cpm*20), status: ef.cpm<=2 ? ['Bajo','var(--green)'] : ['Alto','var(--red)']},
-    {label:'CPC', value: '$'+ef.cpc.toFixed(3), pct: Math.min(100, ef.cpc*400), status: ef.cpc<=0.1 ? ['Bajo','var(--green)'] : ['Alto','var(--red)']},
-    {label:'Frecuencia máx.', value: ef.freq_max.toFixed(2)+'×', pct: Math.min(100, ef.freq_max*10), status: ef.freq_max>5 ? ['Crítico ('+ef.freq_max_adset+')','var(--red)'] : ['Normal','var(--green)']},
+    {label:'CTR total', value: nf(ef.ctr,2)+'%', pct: Math.min(100, ef.ctr*20), status: ef.ctr>=3 ? ['Bueno','var(--green)'] : ef.ctr>=1.5 ? ['Regular','var(--accent-2)'] : ['Bajo','var(--red)']},
+    {label:'CPM', value: '$'+nf(ef.cpm,2), pct: Math.min(100, ef.cpm*20), status: ef.cpm<=2 ? ['Bajo','var(--green)'] : ['Alto','var(--red)']},
+    {label:'CPC', value: '$'+nf(ef.cpc,3), pct: Math.min(100, ef.cpc*400), status: ef.cpc<=0.1 ? ['Bajo','var(--green)'] : ['Alto','var(--red)']},
+    {label:'Frecuencia máx.', value: nf(ef.freq_max,2)+'×', pct: Math.min(100, ef.freq_max*10), status: ef.freq_max>5 ? ['Crítico ('+ef.freq_max_adset+')','var(--red)'] : ['Normal','var(--green)']},
     {label:'CPA', value: ef.cpa ? '$'+ef.cpa.toFixed(2) : '—', pct: ef.cpa ? 100 : 0, status: (!ef.cpa || ef.cpa>150) ? ['Crítico','var(--red)'] : ['Ok','var(--green)']}
   ];
   el.innerHTML = rows.map(r => '<div class="compare-row"><div class="compare-label">'+r.label+'</div><div class="compare-bar-wrap"><div class="compare-bar'+(r.status[1]==='var(--red)'?' crit':'')+'" style="width:'+r.pct+'%;">'+r.value+'</div></div><div class="compare-value" style="color:'+r.status[1]+'">'+r.status[0]+'</div></div>').join('');
@@ -637,8 +638,8 @@ function narrativeArticulosEc(articulos) {
 function narrativeAds(ads) {
   const roasDelta = pctDelta(ads.meta_roas, ads.prev_meta_roas);
   const spendDelta = pctDelta(ads.meta_spend_usd, ads.prev_meta_spend_usd);
-  let s = 'Se invirtieron <strong>' + fmtUsd(ads.meta_spend_usd) + '</strong> en Meta Ads esta semana (' + (spendDelta===null?'sin dato previo':((spendDelta>=0?'+':'')+spendDelta.toFixed(0)+'%')) + ' vs. la anterior), generando <strong>' + ads.meta_compras + ' compra' + (ads.meta_compras===1?'':'s') + '</strong> atribuida' + (ads.meta_compras===1?'':'s') + ' y un ROAS de <em>' + ads.meta_roas.toFixed(2) + 'x</em>';
-  s += (roasDelta===null ? '.' : (roasDelta >= 0 ? ', una mejora de ' + roasDelta.toFixed(0) + '% frente a la semana previa (' + ads.prev_meta_roas.toFixed(2) + 'x).' : ', un deterioro de ' + Math.abs(roasDelta).toFixed(0) + '% frente a la semana previa (' + ads.prev_meta_roas.toFixed(2) + 'x).'));
+  let s = 'Se invirtieron <strong>' + fmtUsd(ads.meta_spend_usd) + '</strong> en Meta Ads esta semana (' + (spendDelta===null?'sin dato previo':((spendDelta>=0?'+':'')+spendDelta.toFixed(0)+'%')) + ' vs. la anterior), generando <strong>' + ads.meta_compras + ' compra' + (ads.meta_compras===1?'':'s') + '</strong> atribuida' + (ads.meta_compras===1?'':'s') + ' y un ROAS de <em>' + nf(ads.meta_roas,2) + 'x</em>';
+  s += (roasDelta===null ? '.' : (roasDelta >= 0 ? ', una mejora de ' + roasDelta.toFixed(0) + '% frente a la semana previa (' + nf(ads.prev_meta_roas,2) + 'x).' : ', un deterioro de ' + Math.abs(roasDelta).toFixed(0) + '% frente a la semana previa (' + nf(ads.prev_meta_roas,2) + 'x).'));
   if (ads.meta_roas < 1) s += ' Con ROAS por debajo de 1x, cada dólar invertido en Meta está devolviendo menos de un dólar en valor atribuido — no es sostenible mantenerlo así sin ajustar audiencia, creativo o presupuesto.';
   if (ads.eficiencia && ads.eficiencia.cpa) s += ' El CPA de la semana es <strong>' + fmtUsd(ads.eficiencia.cpa) + '</strong> por compra.';
   return s;
@@ -675,7 +676,7 @@ function renderWeek(weekId) {
   document.getElementById('resumenLead').innerHTML = week.resumen_lead || '';
 
   document.getElementById('heroStat').innerHTML =
-    '<div class="hero-stat-item"><div class="l">Meta Ads — inversión</div><div class="v">' + fmtUsd(ads.meta_spend_usd) + '</div><div class="s">' + ads.meta_compras + ' compras atribuidas · ROAS ' + ads.meta_roas.toFixed(2) + 'x</div></div>' +
+    '<div class="hero-stat-item"><div class="l">Meta Ads — inversión</div><div class="v">' + fmtUsd(ads.meta_spend_usd) + '</div><div class="s">' + ads.meta_compras + ' compras atribuidas · ROAS ' + nf(ads.meta_roas,2) + 'x</div></div>' +
     '<div class="hero-stat-item"><div class="l">Ingresos GA4 combinados</div><div class="v">' + fmtUsd(totalGa4Ingresos) + '</div><div class="s">' + deltaLabel(totalGa4Ingresos, prevTotalGa4Ingresos).replace('kpi-delta','') + '</div></div>' +
     '<div class="hero-stat-item"><div class="l">Leads nuevos (Kommo, API)</div><div class="v">' + ((ec.funnel_kommo.leads_nuevos_kommo_api||0) + (col.funnel_kommo.leads_nuevos_kommo_api||0)) + '</div><div class="s">' + (ec.funnel_kommo.leads_nuevos_kommo_api||0) + ' Ecuador · ' + (col.funnel_kommo.leads_nuevos_kommo_api||0) + ' Colombia</div></div>';
 
@@ -739,8 +740,8 @@ function renderWeek(weekId) {
   document.getElementById('adsKpis').innerHTML =
     kpiCard('Inversión Meta', fmtUsd(ads.meta_spend_usd), deltaLabel(ads.meta_spend_usd, ads.prev_meta_spend_usd)) +
     kpiCard('Impresiones', fmtInt(ads.meta_impresiones), deltaLabel(ads.meta_impresiones, ads.prev_meta_impresiones)) +
-    kpiCard('Frecuencia (pond.)', ads.meta_frecuencia.toFixed(2)+'x', '<span class="kpi-delta">' + (ads.eficiencia.freq_max_adset||'') + ' en ' + ads.eficiencia.freq_max.toFixed(2) + 'x</span>') +
-    kpiCard('ROAS', ads.meta_roas.toFixed(2) + 'x', deltaLabel(ads.meta_roas, ads.prev_meta_roas)) +
+    kpiCard('Frecuencia (pond.)', nf(ads.meta_frecuencia,2)+'x', '<span class="kpi-delta">' + (ads.eficiencia.freq_max_adset||'') + ' en ' + nf(ads.eficiencia.freq_max,2) + 'x</span>') +
+    kpiCard('ROAS', nf(ads.meta_roas,2) + 'x', deltaLabel(ads.meta_roas, ads.prev_meta_roas)) +
     kpiCard('Compras atribuidas', ads.meta_compras, deltaLabel(ads.meta_compras, ads.prev_meta_compras)) +
     kpiCard('Alcance (suma campañas)', fmtInt(ads.meta_alcance), deltaLabel(ads.meta_alcance, ads.prev_meta_alcance));
 
