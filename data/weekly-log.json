@@ -2,7 +2,7 @@
  "meta": {
   "descripcion": "Histórico semanal ejecutivo BOU Entertainment (Ecuador + Colombia + Meta Ads). Una entrada por semana, generada cada martes a partir de data/daily-log.json, Kommo API y Windsor.ai.",
   "fuente": "data/daily-log.json (agregado por semana) + Kommo API v4 (funnel, conteo por leads creados en la semana) + Windsor.ai (Meta Ads + GA4)",
-  "ultima_actualizacion": "2026-10-20"
+  "ultima_actualizacion": "2026-10-27"
  },
  "weeks": [
   {
@@ -3876,6 +3876,394 @@
     "Usuarios/sesiones GA4, Kommo, PrestaShop y Contifico: suma lunes-domingo de daily-log.json reconstruido desde ramas claude/* de getbou/bou-dashboard-data. Domingo 18/oct parcial.",
     "Funnel y backlog: snapshot del 18/oct. Lapso de respuesta sin dato. ventas_consolidadas_col (Sheet) en 0 en el daily: no verificado.",
     "Verificacion visual de reporte-semanal.html pendiente de revision manual por Luis (sin navegador en cloud)."
+   ]
+  },
+  {
+   "week_id": "2026-W43",
+   "week_start": "2026-10-19",
+   "week_end": "2026-10-25",
+   "week_start_prev": "2026-10-12",
+   "week_end_prev": "2026-10-18",
+   "generated_at": "2026-10-27",
+   "generated_note": "Semana completa (lunes 19 a domingo 25 de octubre) vs semana previa (12-18 oct). Sabado 24 y domingo 25 solo traen corte de la manana. Generado autonomamente en la nube. LIMITACION: Meta Ads (Windsor.ai facebook) sigue sin cuentas autorizadas, ads va en 0/vacio (NO son ceros reales). Kommo, GA4 diario, PrestaShop y Contifico salen de daily-log.json (getbou/bou-dashboard-data), reconstruido desde ramas claude/* porque main del repo de datos termina el 30/sep. La semana previa se recalculo con esas filas y difiere levemente de lo publicado en W42.",
+   "headline": "Ecuador <em>cierra por fin ventas web (4 compras GA4)</em>, pero Colombia desaparece de GA4 y Meta sigue ciego",
+   "headline_html": "Semana del <em>19 al 25 de octubre</em>.",
+   "subtitle": "Reporte ejecutivo Ecuador + Colombia + Meta Ads, semana 19-25 oct comparada contra 12-18 oct. Datos de Meta no disponibles esta semana.",
+   "resumen_lead": "Ecuador registra <strong>4 compras web en GA4 ($164.98)</strong> y <strong>6 documentos en Contifico ($224)</strong>, tras semanas en cero, aunque los mensajes entrantes caen a <strong>59 (-59%, vs 145)</strong> y los leads nuevos a 16 (vs 29). Colombia mantiene <strong>3 pedidos web ($417,200 COP)</strong> y sube a 36 entrantes (+20%), pero GA4 COL cayo a <strong>1 sesion en toda la semana (vs 172)</strong>: el tracking dejo de medir desde el 19/oct. Meta Ads sigue sin dato.",
+   "resumen_insights": [
+    {
+     "tag": "critical",
+     "tagLabel": "Critico",
+     "title": "GA4 Colombia dejo de medir y Meta sigue sin cuentas",
+     "body": "co.bouentertainment.com pasa de 172 a 1 sesion y 0 usuarios casi todos los dias desde el 19/oct, mientras PrestaShop COL registra 3 pedidos. Ademas Windsor.ai facebook no tiene cuentas: sin gasto, ROAS ni ad sets."
+    },
+    {
+     "tag": "watch",
+     "tagLabel": "Atencion",
+     "title": "EC: demanda de chat -59% y PrestaShop EC en 0",
+     "body": "Entrantes 145→59 y leads nuevos 29→16. GA4 EC muestra 4 compras ($164.98) y Contifico 6 documentos ($224), pero PrestaShop EC reporta 0 pedidos: los pedidos no estan llegando al webservice o se filtran por estado."
+    },
+    {
+     "tag": "opportunity",
+     "tagLabel": "Oportunidad",
+     "title": "Ventas web EC activas y 21 leads tibios/calientes",
+     "body": "El embudo EC convirtio: 32 view_item → 10 add_to_cart → 6 begin_checkout → 4 purchase. El funnel Kommo suma 19 tibios y 2 calientes (datos bancarios) listos para cierre."
+    }
+   ],
+   "ecuador": {
+    "trafico": {
+     "ga4_usuarios": 97,
+     "ga4_sesiones": 116,
+     "ga4_ingresos_usd": 164.98,
+     "ga4_compras": 4,
+     "prev_ga4_usuarios": 105,
+     "prev_ga4_sesiones": 140,
+     "prev_ga4_ingresos_usd": 0,
+     "prev_ga4_compras": 0
+    },
+    "ventas": {
+     "prestashop_pedidos": 0,
+     "prestashop_total_usd": 0,
+     "prev_prestashop_pedidos": 0,
+     "prev_prestashop_total_usd": 0
+    },
+    "mensajeria": {
+     "entrantes": 59,
+     "salientes": 37,
+     "prev_entrantes": 145,
+     "prev_salientes": 95,
+     "lapso_mediana_s": null,
+     "prev_lapso_mediana_s": null
+    },
+    "kommo_backlog": null,
+    "canal_mix": {
+     "WhatsApp": 51,
+     "Instagram DM": 45
+    },
+    "funnel_kommo": {
+     "total": 81,
+     "window_days": 30,
+     "leads_nuevos_kommo_api": 16,
+     "etapas": {
+      "Sorteos y concursos": 10,
+      "Reacciones y Comentarios": 36,
+      "leads Calientes (datos bancarios)": 2,
+      "leads Tibios (interacción)": 19,
+      "Contacto inicial": 3,
+      "Ventas Perdidos": 3,
+      "Servicios Adicionales": 2,
+      "SPAM": 2,
+      "ATENCION AGENTE": 1,
+      "Colaboraciones": 1,
+      "Logrado con éxito": 1,
+      "Por entregar": 1
+     }
+    },
+    "alerta": {
+     "label": "4 compras GA4 EC, PrestaShop EC en 0",
+     "text": "GA4 EC registra 4 purchase ($164.98) y Contifico 6 documentos ($224), pero PrestaShop EC reporta 0 pedidos. Entrantes Kommo cayeron a 59 (vs 145)."
+    },
+    "ga4_eventos": [
+     {
+      "event_name": "page_view",
+      "event_count": 395
+     },
+     {
+      "event_name": "user_engagement",
+      "event_count": 284
+     },
+     {
+      "event_name": "session_start",
+      "event_count": 114
+     },
+     {
+      "event_name": "scroll",
+      "event_count": 89
+     },
+     {
+      "event_name": "first_visit",
+      "event_count": 86
+     },
+     {
+      "event_name": "form_start",
+      "event_count": 59
+     },
+     {
+      "event_name": "form_submit",
+      "event_count": 41
+     },
+     {
+      "event_name": "view_item",
+      "event_count": 32
+     }
+    ],
+    "ga4_eventos_nota": "page_view = paginas vistas; user_engagement = tiempo activo; session_start = inicio de sesion; scroll = lectura al 90%; first_visit = visitante nuevo; form_start/form_submit = formularios iniciados y enviados; view_item = fichas de producto vistas. Fuente Windsor.ai, hostname bouentertainment.com.",
+    "ga4_eventos_clave": [
+     {
+      "event_name": "add_to_cart",
+      "event_count": 10
+     },
+     {
+      "event_name": "begin_checkout",
+      "event_count": 6
+     },
+     {
+      "event_name": "purchase",
+      "event_count": 4
+     }
+    ],
+    "ga4_eventos_clave_nota": "Embudo EC: 32 view_item -> 10 add_to_cart -> 6 begin_checkout -> 4 purchase (primera semana reciente con compras). Los 4 purchase suman $164.98 en GA4.",
+    "ga4_canales": [
+     {
+      "channel": "Organic Search",
+      "sessions": 52
+     },
+     {
+      "channel": "Direct",
+      "sessions": 23
+     },
+     {
+      "channel": "Organic Social",
+      "sessions": 21
+     },
+     {
+      "channel": "Referral",
+      "sessions": 18
+     },
+     {
+      "channel": "Unassigned",
+      "sessions": 2
+     }
+    ],
+    "ga4_articulos": [
+     {
+      "item_name": "Camiseta La Piel – GUANACO (Tamaño: L)",
+      "items_purchased": 2,
+      "item_revenue": 89.98
+     },
+     {
+      "item_name": "CD LolabúmEl Cielo 10 Años",
+      "items_purchased": 1,
+      "item_revenue": 15
+     },
+     {
+      "item_name": "La Piel Mundialista Ecuador Nro. 9 - 10 (Tamaño: S - Personalización : Sin Nombre - Número : 9)",
+      "items_purchased": 1,
+      "item_revenue": 45
+     }
+    ],
+    "ga4_articulos_nota": "Ingreso por articulo suma $149.98 vs $164.98 de purchase_revenue total (diferencia $15, probablemente envio)."
+   },
+   "colombia": {
+    "trafico": {
+     "ga4_usuarios": 1,
+     "ga4_sesiones": 1,
+     "ga4_ingresos_usd": 0,
+     "ga4_compras": 0,
+     "prev_ga4_usuarios": 127,
+     "prev_ga4_sesiones": 172,
+     "prev_ga4_ingresos_usd": 0,
+     "prev_ga4_compras": 0
+    },
+    "ventas": {
+     "prestashop_pedidos": 3,
+     "prestashop_total_cop": 417200,
+     "prev_prestashop_pedidos": 2,
+     "prev_prestashop_total_cop": 521500
+    },
+    "mensajeria": {
+     "entrantes": 36,
+     "salientes": 13,
+     "prev_entrantes": 30,
+     "prev_salientes": 43,
+     "lapso_mediana_s": null,
+     "prev_lapso_mediana_s": null
+    },
+    "kommo_backlog": null,
+    "canal_mix": {
+     "WhatsApp": 43,
+     "Instagram DM": 6
+    },
+    "funnel_kommo": {
+     "total": 13,
+     "window_days": 30,
+     "leads_nuevos_kommo_api": 3,
+     "etapas": {
+      "Contacto inicial": 2,
+      "REACCIONES Y COMENTARIOS": 4,
+      "Por entregar": 4,
+      "Logrado con éxito": 1,
+      "leads Tibios (interacción)": 2
+     }
+    },
+    "alerta": {
+     "label": "GA4 COL cae a 1 sesion",
+     "text": "co.bouentertainment.com registra 1 sesion y 2 eventos en toda la semana (vs 172 sesiones) desde el 19/oct, con 3 pedidos reales en PrestaShop ($417,200 COP). Posible tag GA4 roto/removido o cambio de dominio/hostname."
+    },
+    "ga4_eventos": [
+     {
+      "event_name": "view_item",
+      "event_count": 1
+     },
+     {
+      "event_name": "add_to_cart",
+      "event_count": 1
+     }
+    ],
+    "ga4_eventos_nota": "Solo 2 eventos en la semana (1 view_item, 1 add_to_cart), señal de que la propiedad GA4 casi no recibe datos de co.bouentertainment.com. Fuente Windsor.ai.",
+    "ga4_eventos_clave": [
+     {
+      "event_name": "add_to_cart",
+      "event_count": 1
+     }
+    ],
+    "ga4_eventos_clave_nota": "Sin begin_checkout ni purchase; no es una caida de demanda real (hay 3 pedidos PrestaShop), es falta de medicion.",
+    "ga4_canales": [
+     {
+      "channel": "Referral",
+      "sessions": 1
+     }
+    ],
+    "ga4_articulos": [],
+    "ga4_articulos_nota": "GA4 no registro ningun purchase en COL aunque PrestaShop reporto 3 pedidos: el tracking esta roto."
+   },
+   "ads": {
+    "meta_spend_usd": 0,
+    "meta_compras": 0,
+    "meta_ingresos_usd": 0,
+    "meta_roas": null,
+    "meta_cpa_usd": null,
+    "meta_impresiones": 0,
+    "meta_alcance": 0,
+    "meta_clics": 0,
+    "meta_link_clics": 0,
+    "meta_ctr": null,
+    "meta_frecuencia": null,
+    "prev_meta_spend_usd": 0,
+    "prev_meta_compras": 0,
+    "prev_meta_ingresos_usd": 0,
+    "prev_meta_roas": null,
+    "prev_meta_impresiones": 0,
+    "prev_meta_alcance": 0,
+    "prev_meta_clics": 0,
+    "eficiencia": {
+     "ctr": null,
+     "cpm": null,
+     "cpc": null,
+     "freq_max": null,
+     "freq_max_adset": null,
+     "cpa": null,
+     "note": "Sin dato Meta: Windsor.ai facebook sin cuentas configuradas, no se pudo consultar."
+    },
+    "ad_sets": [],
+    "nota": "Windsor.ai (facebook) responde 'No facebook accounts are configured'; requiere reautorizar. Los $0 son ausencia de dato, no gasto cero. Solo 0 sesiones Paid Social en GA4 esta semana sugiere pauta casi nula, sin confirmarlo."
+   },
+   "hallazgos_tecnicos": [
+    {
+     "tag": "critical",
+     "tagLabel": "Critico",
+     "title": "GA4 Colombia sin datos desde el 19/oct",
+     "body": "Sesiones COL: 172 (12-18 oct) → 1 (19-25 oct); 0 usuarios casi todos los dias. PrestaShop COL sigue con 3 pedidos, asi que la tienda funciona.",
+     "action": "Revisar tag/GTM de co.bouentertainment.com y filtros de hostname en la propiedad 414923086."
+    },
+    {
+     "tag": "critical",
+     "tagLabel": "Critico",
+     "title": "Windsor.ai Meta (facebook) sin cuentas",
+     "body": "get_data devuelve 'No facebook accounts are configured for luisboucompanycom'. Tercera semana sin gasto, ROAS, frecuencia ni ad sets.",
+     "action": "Reautorizar Meta en Windsor.ai (onboard.windsor.ai?datasource=facebook) y backfillear."
+    },
+    {
+     "tag": "watch",
+     "tagLabel": "Atencion",
+     "title": "PrestaShop EC en 0 con 4 compras GA4 y 6 docs Contifico",
+     "body": "El webservice EC reporta 0 pedidos pese a purchase en GA4 ($164.98) y 6 documentos Contifico ($224).",
+     "action": "Revisar filtro de estados/credencial del webservice EC en la tarea diaria."
+    },
+    {
+     "tag": "watch",
+     "tagLabel": "Atencion",
+     "title": "Repo de datos: main termina el 30/sep",
+     "body": "daily-log.json en main de bou-dashboard-data no avanza desde el 30/sep; los datos de W43 se reconstruyeron desde ramas claude/*. Sabado y domingo solo tienen corte de la manana.",
+     "action": "Mergear las ramas de datos a main y confirmar el auto-merge de la tarea diaria."
+    },
+    {
+     "tag": "watch",
+     "tagLabel": "Atencion",
+     "title": "Lapso de respuesta y backlog sin dato",
+     "body": "kommo_lapso_medio_* es null toda la semana y kommo_backlog_* no se publico dentro de la semana (primer valor: EC 3 / COL 2 el 26/oct).",
+     "action": "Verificar el calculo de lapso en la tarea diaria."
+    }
+   ],
+   "hallazgos_ventas": [
+    {
+     "tag": "opportunity",
+     "tagLabel": "Oportunidad",
+     "title": "EC convierte: 4 compras y $164.98 en GA4",
+     "body": "Camiseta La Piel GUANACO (2 uds, $89.98), La Piel Mundialista ($45) y CD Lolabum ($15). Contifico suma 6 documentos por $224.",
+     "action": "Reforzar La Piel/Guanaco en contenido y chat."
+    },
+    {
+     "tag": "watch",
+     "tagLabel": "Atencion",
+     "title": "Demanda por chat EC -59%",
+     "body": "Entrantes 145→59 y leads nuevos 29→16; salientes 95→37. WhatsApp (51) supera a Instagram DM (45).",
+     "action": "Reactivar comunicacion en Instagram (la semana previa dominaba el DM)."
+    },
+    {
+     "tag": "opportunity",
+     "tagLabel": "Oportunidad",
+     "title": "21 leads tibios/calientes EC sin cerrar",
+     "body": "Funnel EC: 19 tibios y 2 calientes (datos bancarios).",
+     "action": "Seguimiento directo a los 2 calientes esta semana."
+    },
+    {
+     "tag": "watch",
+     "tagLabel": "Atencion",
+     "title": "Colombia: chats +20% pero salientes -70%",
+     "body": "Entrantes 30→36, salientes 43→13, y 3 pedidos web ($417,200 COP, vs 2 / $521,500). Casi todo WhatsApp (43).",
+     "action": "Asegurar respuesta a los 36 entrantes COL."
+    }
+   ],
+   "acciones": [
+    {
+     "title": "Reparar GA4 de co.bouentertainment.com",
+     "body": "Sin medicion COL no hay atribucion de ventas.",
+     "owner": "Luis",
+     "timing": "Hoy"
+    },
+    {
+     "title": "Reautorizar Meta en Windsor.ai y backfill",
+     "body": "Tres semanas sin pauta visible.",
+     "owner": "Luis",
+     "timing": "Hoy"
+    },
+    {
+     "title": "Cruzar PrestaShop EC vs Contifico/GA4",
+     "body": "Explicar por que el webservice EC reporta 0 pedidos.",
+     "owner": "Luis",
+     "timing": "Esta semana"
+    },
+    {
+     "title": "Seguimiento a 2 leads calientes EC",
+     "body": "Datos bancarios entregados, cerrar venta.",
+     "owner": "Equipo comercial",
+     "timing": "Esta semana"
+    },
+    {
+     "title": "Mergear ramas de datos a main en bou-dashboard-data",
+     "body": "main termina el 30/sep.",
+     "owner": "Luis",
+     "timing": "Esta semana"
+    }
+   ],
+   "notas_verificacion": [
+    "Meta Ads (Windsor.ai facebook) NO consultado: cuentas no configuradas; ads en 0/vacio.",
+    "GA4 eventos, canales y articulos via Windsor.ai (propiedad 414923086), hostnames bouentertainment.com (EC) y co.bouentertainment.com (COL).",
+    "daily-log.json: main de getbou/bou-dashboard-data termina el 30/sep; filas 1-oct a 26-oct reconstruidas uniendo ramas claude/* (se prefiere fila no parcial). Semana previa recalculada y difiere de W42 publicado (ej. EC entrantes 145 vs 134).",
+    "Funnel Kommo: snapshot del 26/oct (ventana 30 dias). kommo_backlog = null (ninguna fila dentro de la semana lo trae); lapso de respuesta = null.",
+    "Paso 10 (verificacion visual en reporte-semanal.html con Chrome) omitido: sin navegador en cloud; queda pendiente de revision manual por Luis.",
+    "Lectura de Sheets Matriz Ventas COL no realizada (no requerida; PrestaShop es fuente primaria)."
    ]
   }
  ]
