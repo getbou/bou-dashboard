@@ -4978,6 +4978,366 @@
         "Google Sheet COL no releído: la última fecha en daily-log es 27/oct y ventas_consolidadas_col va en 0 toda la semana.",
         "Verificación visual de reporte-semanal.html pendiente de revisión manual por Luis (sin navegador en cloud)."
       ]
+    },
+    {
+      "week_id": "2026-W46",
+      "week_start": "2026-11-09",
+      "week_end": "2026-11-15",
+      "week_start_prev": "2026-11-02",
+      "week_end_prev": "2026-11-08",
+      "generated_at": "2026-11-17",
+      "generated_note": "Semana completa (lunes 9 nov a domingo 15 nov) vs semana previa (2-8 nov). Sábado 14 y domingo 15 solo traen corte de la mañana (parcial). Tráfico/ingresos GA4 EC de la semana actual tomados directo de Windsor.ai (el daily-log subregistra por desfase de GA4 en el corte diario); semana previa desde daily-log. Generado autónomamente en la nube el 17/nov. LIMITACIONES: Meta Ads sin cuentas en Windsor.ai (ads en 0/vacío, NO son ceros reales). daily-log.json leído de la rama claude/epic-galileo-ffutcr de getbou/bou-dashboard-data (main termina el 30/sep).",
+      "headline": "Ecuador <em>vuelve a vender en la web</em>: 5 compras GA4 y chats +31%",
+      "headline_html": "Semana del <em>9 al 15 de noviembre</em>.",
+      "subtitle": "Reporte ejecutivo Ecuador + Colombia + Meta Ads, semana 9-15 nov comparada con 2-8 nov",
+      "resumen_lead": "Ecuador recupera conversación: <strong>51 mensajes entrantes (vs 39, +31%)</strong> y 42 salientes (vs 23). La web hizo <strong>152 sesiones (vs 114) y 5 compras por $115 en GA4</strong> — vinilo de Guanaco y CD de Lolabúm —, aunque PrestaShop solo concilia 2 pedidos ($55). Colombia cobró <strong>COP 442.250 en 2 pedidos</strong> pero sigue sin GA4. Leads nuevos bajan (EC 3 vs 8) y el backlog EC llegó a 26 chats sin responder el viernes. Meta Ads sigue sin dato por sexta semana.",
+      "resumen_insights": [
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "Respuesta a chats se cae a partir del jueves",
+          "body": "Lun-mié se respondieron 39 de 34 entrantes (lapso 3-4 min lun/mar), pero jue-dom solo 3 salientes para 17 entrantes; el backlog EC subió de 4 a 26 el viernes y el lapso del miércoles fue de 96 min. El fin de semana no hay atención."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "Compras web sin conciliar",
+          "body": "GA4 cuenta 5 purchase por $115; PrestaShop confirma 2 pedidos pagados por $55 y Contífico 3 documentos por $82,41. Hay ~$60 en compras que podrían estar pendientes de pago o duplicadas."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Guanaco y Lolabúm mueven la web",
+          "body": "2 vinilos 'Flor y Puñal' ($70) y 3 CDs de Lolabúm ($45). Referral (34 sesiones) y Direct (59) crecieron; empujar estos dos productos en redes con link directo."
+        }
+      ],
+      "ecuador": {
+        "mensajeria": {
+          "entrantes": 51,
+          "salientes": 42,
+          "prev_entrantes": 39,
+          "prev_salientes": 23,
+          "lapso_mediana_s": 2103,
+          "prev_lapso_mediana_s": null
+        },
+        "kommo_backlog": 2,
+        "canal_mix": {
+          "WhatsApp": 57,
+          "Instagram DM": 36
+        },
+        "funnel_kommo": {
+          "total": 84,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 3,
+          "etapas": {
+            "Reacciones y Comentarios": 53,
+            "leads Tibios (interacción)": 15,
+            "Sorteos y concursos": 4,
+            "Por entregar": 3,
+            "leads Calientes (datos bancarios)": 2,
+            "Colaboraciones": 2,
+            "SPAM": 1,
+            "Contacto inicial": 1,
+            "Servicios Adicionales": 1,
+            "leads frios (no responde)": 1,
+            "BOU SESSION": 1
+          }
+        },
+        "trafico": {
+          "ga4_usuarios": 97,
+          "ga4_sesiones": 152,
+          "ga4_ingresos_usd": 115,
+          "ga4_compras": 5,
+          "prev_ga4_usuarios": 88,
+          "prev_ga4_sesiones": 114,
+          "prev_ga4_ingresos_usd": 15,
+          "prev_ga4_compras": 1
+        },
+        "ventas": {
+          "prestashop_pedidos": 2,
+          "prestashop_total_usd": 55,
+          "prev_prestashop_pedidos": 0,
+          "prev_prestashop_total_usd": 0
+        },
+        "alerta": {
+          "label": "GA4 registra 5 compras ($115) y PrestaShop solo 2 pedidos pagados ($55)",
+          "text": "El 10/nov GA4 marca 2 purchase por $30 y el 11/nov 2 por $50, pero PrestaShop (por fecha de pago) solo confirma el 9/nov ($35) y el 13/nov ($20). Contífico emitió 3 documentos por $82,41. Hay ~$60 en compras web sin pedido pagado conciliado: revisar si quedaron en estado pendiente/transferencia o si es doble disparo de purchase."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 537
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 418
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 183
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 150
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 128
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 92
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 75
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 73
+          }
+        ],
+        "ga4_eventos_nota": "page_view = páginas vistas; user_engagement = tiempo activo en página; view_item_list = listados de productos vistos; session_start = sesiones; scroll = scroll al 90%; view_item = fichas de producto abiertas; form_start = formularios iniciados (checkout/contacto); first_visit = usuarios nuevos.",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 56
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 20
+          },
+          {
+            "event_name": "purchase",
+            "event_count": 5
+          }
+        ],
+        "ga4_eventos_clave_nota": "Embudo EC: 92 view_item → 20 add_to_cart → 56 begin_checkout → 12 add_shipping_info → 11 add_payment_info → 5 purchase. begin_checkout sigue mayor que add_to_cart (posible doble disparo o compra directa sin carrito); de quienes llegan a pago, 5 de 11 compran.",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 59
+          },
+          {
+            "channel": "Referral",
+            "sessions": 34
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 32
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 25
+          },
+          {
+            "channel": "AI Assistant",
+            "sessions": 1
+          },
+          {
+            "channel": "Unassigned",
+            "sessions": 1
+          }
+        ],
+        "ga4_articulos": [
+          {
+            "item_name": "Vinilo “Flor y Puñal” – GUANACO",
+            "items_purchased": 2,
+            "item_revenue": 70
+          },
+          {
+            "item_name": "CD Lolabúm El Cielo 10 Años",
+            "items_purchased": 3,
+            "item_revenue": 45
+          }
+        ],
+        "ga4_articulos_nota": "Primera semana con vinilo de Guanaco vendido en web (2 × $35). El CD de Lolabúm suma 3 unidades. item_revenue cuadra con purchase_revenue ($115)."
+      },
+      "colombia": {
+        "mensajeria": {
+          "entrantes": 18,
+          "salientes": 12,
+          "prev_entrantes": 3,
+          "prev_salientes": 8,
+          "lapso_mediana_s": 1197,
+          "prev_lapso_mediana_s": null
+        },
+        "kommo_backlog": 1,
+        "canal_mix": {
+          "WhatsApp": 29,
+          "Instagram DM": 1
+        },
+        "funnel_kommo": {
+          "total": 9,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 1,
+          "etapas": {
+            "leads Tibios (interacción)": 4,
+            "Por entregar": 3,
+            "leads frios (no responde)": 1,
+            "Logrado con éxito": 1
+          }
+        },
+        "trafico": {
+          "ga4_usuarios": 0,
+          "ga4_sesiones": 0,
+          "ga4_ingresos_usd": 0,
+          "ga4_compras": 0,
+          "prev_ga4_usuarios": 0,
+          "prev_ga4_sesiones": 0,
+          "prev_ga4_ingresos_usd": 0,
+          "prev_ga4_compras": 0
+        },
+        "ventas": {
+          "prestashop_pedidos": 2,
+          "prestashop_total_cop": 442250,
+          "prev_prestashop_pedidos": 1,
+          "prev_prestashop_total_cop": 200250
+        },
+        "alerta": {
+          "label": "Colombia vende por PrestaShop pero GA4 sigue ciego (4ª semana)",
+          "text": "PrestaShop COL registra 2 pedidos pagados por COP 442.250 (lunes 9/nov), pero GA4 no tiene ninguna fila para co.bouentertainment.com desde el 22/oct y la Matriz de ventas COL no tiene registros en la semana. Las ventas existen; la medición no."
+        },
+        "ga4_eventos": [],
+        "ga4_eventos_nota": "Sin eventos GA4 para co.bouentertainment.com en la semana (tag caído o hostname no enviado).",
+        "ga4_eventos_clave": [],
+        "ga4_eventos_clave_nota": "Sin eventos clave: el tracking COL está caído; PrestaShop sí confirma 2 pedidos, así que no es falta de demanda.",
+        "ga4_canales": [],
+        "ga4_articulos": [],
+        "ga4_articulos_nota": "Sin purchase en GA4 COL; no se pudo verificar el bug histórico de item_revenue=0."
+      },
+      "ads": {
+        "meta_spend_usd": 0,
+        "meta_compras": 0,
+        "meta_ingresos_usd": 0,
+        "meta_roas": null,
+        "meta_cpa_usd": null,
+        "meta_impresiones": 0,
+        "meta_alcance": 0,
+        "meta_clics": 0,
+        "meta_link_clics": 0,
+        "meta_ctr": null,
+        "meta_frecuencia": null,
+        "prev_meta_spend_usd": 0,
+        "prev_meta_compras": 0,
+        "prev_meta_ingresos_usd": 0,
+        "prev_meta_roas": null,
+        "prev_meta_impresiones": 0,
+        "prev_meta_alcance": 0,
+        "prev_meta_clics": 0,
+        "eficiencia": {
+          "ctr": null,
+          "cpm": null,
+          "cpc": null,
+          "freq_max": null,
+          "freq_max_adset": null,
+          "cpa": null,
+          "note": "Sin dato Meta: Windsor.ai facebook sin cuentas configuradas. No son ceros reales."
+        },
+        "ad_sets": [],
+        "nota": "Windsor.ai (facebook) responde 'No facebook accounts are configured for luisboucompanycom' (17/nov). Sexta semana consecutiva sin dato de Meta Ads; spend, ROAS y frecuencia quedan en 0/null y NO representan inversión cero real."
+      },
+      "hallazgos_tecnicos": [
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "Windsor.ai Meta (facebook) sin cuentas — 6ª semana",
+          "body": "get_data devuelve 'No facebook accounts are configured'. No hay spend, ROAS, frecuencia ni ad sets desde inicios de octubre.",
+          "action": "Seleccionar la cuenta 877286016115641 en onboard.windsor.ai?datasource=facebook con un login con acceso a la cuenta publicitaria."
+        },
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "GA4 Colombia sin datos desde el 22/oct",
+          "body": "co.bouentertainment.com no aparece en la propiedad 414923086, mientras PrestaShop COL sí registra 2 pedidos pagados esta semana.",
+          "action": "Revisar que el tag GA4 (G-…) siga instalado en el tema de PrestaShop COL y que el dominio esté en el flujo de datos."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "daily-log subregistra GA4 y vive en ramas sin mergear",
+          "body": "El daily-log suma 86 sesiones EC en la semana; Windsor hoy devuelve 152 (el 12/nov: 3 vs 19). El corte diario captura GA4 antes de que procese. Además main de bou-dashboard-data termina el 30/sep: las filas están en ramas claude/* sin mergear.",
+          "action": "Hacer que bou-dashboard-cierre re-lea GA4 del día anterior y que las corridas diarias mergeen a main (regla de auto-merge)."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "begin_checkout > add_to_cart en EC",
+          "body": "56 begin_checkout vs 20 add_to_cart: el evento puede dispararse más de una vez por sesión o en recargas del checkout.",
+          "action": "Revisar el disparo de begin_checkout en el módulo GA4 de PrestaShop."
+        }
+      ],
+      "hallazgos_ventas": [
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "Backlog EC 26 chats el viernes; 3 salientes de jueves a domingo",
+          "body": "El equipo respondió bien lun-mié, pero desde el jueves la atención cae casi a cero. El domingo el backlog bajó a 2 por cierre/limpieza de conversaciones, no por respuestas.",
+          "action": "Asignar responsable de Kommo jue-dom y meta de respuesta <30 min."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "Leads nuevos EC 8→3",
+          "body": "Más mensajes pero menos leads nuevos: la conversación viene de contactos existentes (WhatsApp 57, Instagram DM 36). El funnel 30d EC tiene 84 leads, 53 en 'Reacciones y Comentarios' y 2 calientes (datos bancarios).",
+          "action": "Contactar hoy los 2 leads calientes y los 15 tibios."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Colombia cobra COP 442.250 sin medición",
+          "body": "2 pedidos el lunes 9/nov (vs 1 por COP 200.250 la semana previa); Kommo COL subió a 18 entrantes (WhatsApp 29 eventos). Hay demanda pero no se puede atribuir.",
+          "action": "Arreglar GA4 COL y registrar ventas en la Matriz COL."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Vinilo de Guanaco vende en la web",
+          "body": "2 vinilos 'Flor y Puñal' por $70 son el 61% del ingreso GA4 EC de la semana.",
+          "action": "Pieza orgánica/stories con link al producto y revisar stock."
+        }
+      ],
+      "acciones": [
+        {
+          "title": "Cubrir Kommo de jueves a domingo",
+          "body": "Backlog EC llegó a 26; definir turno y meta de lapso <30 min.",
+          "owner": "Equipo comercial",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Conciliar compras web 10 y 11 de noviembre",
+          "body": "GA4: 4 compras por $80 sin pedido pagado en PrestaShop. Verificar estado de pago y emitir factura si corresponde.",
+          "owner": "Operaciones",
+          "timing": "Hoy"
+        },
+        {
+          "title": "Reautorizar Meta Ads en Windsor.ai",
+          "body": "6 semanas sin dato de gasto/ROAS.",
+          "owner": "Luis",
+          "timing": "Hoy"
+        },
+        {
+          "title": "Reinstalar/verificar GA4 en co.bouentertainment.com",
+          "body": "4 semanas sin tráfico medido en COL pese a ventas reales.",
+          "owner": "Luis",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Mergear daily-log a main en bou-dashboard-data",
+          "body": "Las filas desde octubre viven en ramas claude/*; consolidar para que el Command Center lea una sola fuente.",
+          "owner": "Luis",
+          "timing": "Esta semana"
+        }
+      ],
+      "notas_verificacion": [
+        "Meta Ads (Windsor.ai facebook) NO consultado con éxito el 17/nov: 'No facebook accounts are configured'; ads en 0/vacío.",
+        "GA4 eventos, canales, artículos y tráfico EC de la semana actual vía Windsor.ai (propiedad 414923086), hostname bouentertainment.com; ensayo.bouentertainment.com excluido; co.bouentertainment.com sin filas (COL en 0). Usuarios = suma de usuarios activos diarios (misma metodología que daily-log).",
+        "daily-log.json leído de la rama claude/epic-galileo-ffutcr de getbou/bou-dashboard-data (commit más reciente, 16/nov 23:13 UTC); main de ese repo termina el 30/sep. Sáb 14 y dom 15 parcial=true. Funnel Kommo y backlog: snapshot del 15/nov.",
+        "Semana previa recalculada desde el daily-log actual: difiere levemente de lo publicado en W45 (ej. entrantes EC 39 vs 37).",
+        "Lapso de respuesta: promedio de los días con valor (EC 4 días, COL 2 días); semana previa sin datos de lapso (null).",
+        "Matriz Ventas COL (Google Sheet) no releída: ventas_consolidadas_col en 0 toda la semana según daily-log.",
+        "Verificación visual de reporte-semanal.html pendiente de revisión manual por Luis (sin navegador en cloud)."
+      ]
     }
   ]
 }
