@@ -5338,6 +5338,382 @@
         "Matriz Ventas COL (Google Sheet) no releída: ventas_consolidadas_col en 0 toda la semana según daily-log.",
         "Verificación visual de reporte-semanal.html pendiente de revisión manual por Luis (sin navegador en cloud)."
       ]
+    },
+    {
+      "week_id": "2026-W47",
+      "week_start": "2026-11-16",
+      "week_end": "2026-11-22",
+      "week_start_prev": "2026-11-09",
+      "week_end_prev": "2026-11-15",
+      "generated_at": "2026-11-24",
+      "generated_note": "Semana completa (lunes 16 nov a domingo 22 nov) vs semana previa (9-15 nov, valores publicados en W46). Sábado 21 y domingo 22 solo traen corte de la mañana (parcial). Tráfico/eventos GA4 tomados directo de Windsor.ai sumando los hostnames viejos (bouentertainment.com) y nuevos (ec./co.boufashion.com) — la tienda migró de dominio el 18/nov. Generado autónomamente en la nube el 24/nov. LIMITACIONES: PrestaShop sin dato del 18 al 22/nov (dominio boufashion.com fuera de la lista blanca de red; ventas = solo lun 16 y mar 17). Meta Ads sin cuentas en Windsor.ai (ads en 0/vacío, NO son ceros reales). daily-log.json leído de la rama claude/epic-galileo-ge3djw de getbou/bou-dashboard-data (main termina el 30/sep).",
+      "headline": "La tienda <em>cambió de dominio</em> y la semana cerró sin ventas web reales",
+      "headline_html": "Semana del <em>16 al 22 de noviembre</em>.",
+      "subtitle": "Reporte ejecutivo Ecuador + Colombia + Meta Ads, semana 16-22 nov comparada con 9-15 nov",
+      "resumen_lead": "El 18/nov la tienda pasó de bouentertainment.com a <strong>ec.boufashion.com / co.boufashion.com</strong> (redirección 301). Desde ese día el webservice de PrestaShop no es accesible para el dashboard, así que <strong>las ventas solo están medidas lunes y martes</strong>: EC 0 pedidos, COL 1 pedido por COP 272.000. GA4 EC bajó a <strong>80 sesiones (vs 152, −47%)</strong> y la única compra registrada fue un <strong>pedido de prueba de $1</strong>. Ecuador recibió <strong>19 mensajes entrantes (vs 51)</strong> y respondió 10; Contífico no emitió ningún documento de BE. Meta Ads sigue sin dato por séptima semana.",
+      "resumen_insights": [
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "Migración a boufashion.com dejó ciego el dashboard de ventas",
+          "body": "Desde el 18/nov bouentertainment.com/api redirige a ec./co.boufashion.com y ese dominio está fuera de la lista blanca de red del entorno: 5 de 7 días sin PrestaShop. Las ventas de mié-dom no son cero confirmado: no se midieron."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "Tráfico y conversación a la mitad",
+          "body": "Sesiones EC 152→80 (−47%), usuarios 97→59, entrantes Kommo EC 51→19 y salientes 42→10. Jue-dom solo 2 entrantes EC. Sin compras reales en GA4 (la única fue 'PRUEBA BOU — no comprar', $1)."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "El nuevo dominio ya funciona de punta a punta",
+          "body": "ec.boufashion.com registra 17 begin_checkout, 11 add_to_cart y la compra de prueba completó el embudo; además GA4 volvió a ver Colombia (4 usuarios, 6 sesiones) tras 4 semanas en cero. Falta comunicar el dominio nuevo a la audiencia."
+        }
+      ],
+      "ecuador": {
+        "mensajeria": {
+          "entrantes": 19,
+          "salientes": 10,
+          "prev_entrantes": 51,
+          "prev_salientes": 42,
+          "lapso_mediana_s": 22,
+          "prev_lapso_mediana_s": 2103
+        },
+        "kommo_backlog": 8,
+        "canal_mix": {
+          "Instagram DM": 15,
+          "WhatsApp": 14
+        },
+        "funnel_kommo": {
+          "total": 64,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 1,
+          "etapas": {
+            "Reacciones y Comentarios": 41,
+            "leads Tibios (interacción)": 12,
+            "leads Calientes (datos bancarios)": 2,
+            "Colaboraciones": 2,
+            "Por entregar": 2,
+            "R.Comentarios Revisados": 2,
+            "Sorteos y concursos": 1,
+            "BOU SESSION": 1,
+            "PRUEBA AGENTE IA": 1
+          }
+        },
+        "trafico": {
+          "ga4_usuarios": 59,
+          "ga4_sesiones": 80,
+          "ga4_ingresos_usd": 1,
+          "ga4_compras": 1,
+          "prev_ga4_usuarios": 97,
+          "prev_ga4_sesiones": 152,
+          "prev_ga4_ingresos_usd": 115,
+          "prev_ga4_compras": 5
+        },
+        "ventas": {
+          "prestashop_pedidos": 0,
+          "prestashop_total_usd": 0,
+          "prev_prestashop_pedidos": 2,
+          "prev_prestashop_total_usd": 55
+        },
+        "alerta": {
+          "label": "Ventas EC sin medir del 18 al 22/nov; la única compra GA4 es una prueba de $1",
+          "text": "PrestaShop registró 0 pedidos pagados lun 16 y mar 17; desde el miércoles el webservice no responde al dashboard por el cambio a ec.boufashion.com. GA4 reporta 1 purchase por $1 el 18/nov = artículo 'PRUEBA BOU — no comprar'. Contífico: 0 documentos BE en la semana (vs 3 por $82,41). Ingreso web real de la semana: $0 confirmado lun-mar, desconocido mié-dom."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 225
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 181
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 78
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 49
+          },
+          {
+            "event_name": "view_item_list",
+            "event_count": 47
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 46
+          },
+          {
+            "event_name": "scroll",
+            "event_count": 45
+          },
+          {
+            "event_name": "form_start",
+            "event_count": 33
+          }
+        ],
+        "ga4_eventos_nota": "Suma de bouentertainment.com (lun-mar) + ec.boufashion.com (mié-dom). page_view = páginas vistas; user_engagement = tiempo activo; session_start = sesiones; view_item = fichas de producto abiertas; view_item_list = listados vistos; first_visit = usuarios nuevos (46 de 59); scroll = scroll al 90%; form_start = formularios iniciados (24 form_submit).",
+        "ga4_eventos_clave": [
+          {
+            "event_name": "begin_checkout",
+            "event_count": 18
+          },
+          {
+            "event_name": "add_to_cart",
+            "event_count": 11
+          },
+          {
+            "event_name": "purchase",
+            "event_count": 1
+          }
+        ],
+        "ga4_eventos_clave_nota": "Embudo EC: 49 view_item → 11 add_to_cart → 8 view_cart → 18 begin_checkout → 2 add_shipping_info → 2 add_payment_info → 1 purchase (prueba interna de $1). 2 personas llegaron a pago y ninguna compra real; begin_checkout sigue mayor que add_to_cart.",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 31
+          },
+          {
+            "channel": "Organic Search",
+            "sessions": 25
+          },
+          {
+            "channel": "Organic Social",
+            "sessions": 13
+          },
+          {
+            "channel": "Referral",
+            "sessions": 9
+          },
+          {
+            "channel": "Unassigned",
+            "sessions": 2
+          }
+        ],
+        "ga4_articulos": [
+          {
+            "item_name": "PRUEBA BOU — no comprar",
+            "items_purchased": 1,
+            "item_revenue": 1
+          }
+        ],
+        "ga4_articulos_nota": "Único artículo comprado es el producto de prueba ($1, 18/nov) — probablemente la validación del checkout en el dominio nuevo. Excluirlo del análisis comercial; sin ventas reales de artículos en GA4."
+      },
+      "colombia": {
+        "mensajeria": {
+          "entrantes": 10,
+          "salientes": 2,
+          "prev_entrantes": 18,
+          "prev_salientes": 12,
+          "lapso_mediana_s": null,
+          "prev_lapso_mediana_s": 1197
+        },
+        "kommo_backlog": 1,
+        "canal_mix": {
+          "WhatsApp": 12
+        },
+        "funnel_kommo": {
+          "total": 7,
+          "window_days": 30,
+          "leads_nuevos_kommo_api": 0,
+          "etapas": {
+            "leads Tibios (interacción)": 3,
+            "leads Calientes (datos bancarios)": 2,
+            "Por entregar": 1,
+            "Logrado con éxito": 1
+          }
+        },
+        "trafico": {
+          "ga4_usuarios": 4,
+          "ga4_sesiones": 6,
+          "ga4_ingresos_usd": 0,
+          "ga4_compras": 0,
+          "prev_ga4_usuarios": 0,
+          "prev_ga4_sesiones": 0,
+          "prev_ga4_ingresos_usd": 0,
+          "prev_ga4_compras": 0
+        },
+        "ventas": {
+          "prestashop_pedidos": 1,
+          "prestashop_total_cop": 272000,
+          "prev_prestashop_pedidos": 2,
+          "prev_prestashop_total_cop": 442250
+        },
+        "alerta": {
+          "label": "10 entrantes COL y solo 2 respuestas; ventas sin medir desde el 18/nov",
+          "text": "PrestaShop COL confirma 1 pedido por COP 272.000 el lun 16/nov; mié-dom sin dato por el cambio a co.boufashion.com. En Kommo entraron 10 mensajes por WhatsApp y se respondieron 2 (sin lapso medible). La Matriz de ventas COL no tiene registros desde el 8/nov."
+        },
+        "ga4_eventos": [
+          {
+            "event_name": "page_view",
+            "event_count": 6
+          },
+          {
+            "event_name": "session_start",
+            "event_count": 5
+          },
+          {
+            "event_name": "user_engagement",
+            "event_count": 3
+          },
+          {
+            "event_name": "first_visit",
+            "event_count": 2
+          },
+          {
+            "event_name": "view_item",
+            "event_count": 2
+          }
+        ],
+        "ga4_eventos_nota": "GA4 vuelve a recibir datos de Colombia, ahora bajo co.boufashion.com (18-20/nov). Volumen mínimo: 6 páginas vistas, 2 fichas de producto.",
+        "ga4_eventos_clave": [],
+        "ga4_eventos_clave_nota": "Sin add_to_cart, begin_checkout ni purchase en COL; el pedido de COP 272.000 del lunes fue antes de que el tag empezara a medir.",
+        "ga4_canales": [
+          {
+            "channel": "Direct",
+            "sessions": 6
+          }
+        ],
+        "ga4_articulos": [],
+        "ga4_articulos_nota": "Sin purchase GA4 COL; no se pudo verificar el bug histórico de item_revenue=0."
+      },
+      "ads": {
+        "meta_spend_usd": 0,
+        "meta_compras": 0,
+        "meta_ingresos_usd": 0,
+        "meta_roas": null,
+        "meta_cpa_usd": null,
+        "meta_impresiones": 0,
+        "meta_alcance": 0,
+        "meta_clics": 0,
+        "meta_link_clics": 0,
+        "meta_ctr": null,
+        "meta_frecuencia": null,
+        "prev_meta_spend_usd": 0,
+        "prev_meta_compras": 0,
+        "prev_meta_ingresos_usd": 0,
+        "prev_meta_roas": null,
+        "prev_meta_impresiones": 0,
+        "prev_meta_alcance": 0,
+        "prev_meta_clics": 0,
+        "eficiencia": {
+          "ctr": null,
+          "cpm": null,
+          "cpc": null,
+          "freq_max": null,
+          "freq_max_adset": null,
+          "cpa": null,
+          "note": "Sin dato Meta: Windsor.ai facebook sin cuentas configuradas. No son ceros reales."
+        },
+        "ad_sets": [],
+        "nota": "Windsor.ai (facebook) responde 'No facebook accounts are configured for luisboucompanycom' (24/nov). Séptima semana consecutiva sin dato de Meta Ads; spend, ROAS y frecuencia en 0/null NO representan inversión cero real."
+      },
+      "hallazgos_tecnicos": [
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "PrestaShop inaccesible tras migrar a boufashion.com",
+          "body": "Desde el 18/nov bouentertainment.com/api y co.bouentertainment.com/api responden 301 → ec./co.boufashion.com, y el proxy de salida del entorno cloud rechaza ese dominio (re-verificado hoy 24/nov). 5 días de la semana sin pedidos ni montos.",
+          "action": "Pedir al admin de la organización agregar ec.boufashion.com y co.boufashion.com (o *.boufashion.com) a la lista blanca de red, y actualizar las URLs del webservice en las tareas diarias."
+        },
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "Windsor.ai Meta (facebook) sin cuentas — 7ª semana",
+          "body": "get_data sigue devolviendo 'No facebook accounts are configured'. Sin spend, ROAS, frecuencia ni ad sets desde inicios de octubre.",
+          "action": "Seleccionar la cuenta 877286016115641 en onboard.windsor.ai?datasource=facebook con un login que tenga acceso."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "GA4 ahora reporta con hostnames boufashion.com",
+          "body": "El tráfico del 18/nov en adelante llega bajo ec.boufashion.com y co.boufashion.com; bouentertainment.com quedó solo con lun-mar. Este reporte suma ambos; Colombia reaparece en GA4 tras 4 semanas en cero. Hay una compra de prueba ($1) contaminando purchase/revenue.",
+          "action": "Confirmar el mapeo de hostnames en el Command Center y excluir el producto 'PRUEBA BOU' (o usar modo debug) en futuras pruebas."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "daily-log sigue en ramas sin mergear",
+          "body": "main de bou-dashboard-data termina el 30/sep; las filas de oct-nov viven en ramas claude/* (esta semana: claude/epic-galileo-ge3djw). Además el daily-log subregistra GA4 (29 sesiones EC vs 80 en Windsor).",
+          "action": "Consolidar el daily-log a main y que bou-dashboard-cierre re-lea GA4 del día anterior."
+        }
+      ],
+      "hallazgos_ventas": [
+        {
+          "tag": "critical",
+          "tagLabel": "Crítico",
+          "title": "Semana sin ventas web reales confirmadas en Ecuador",
+          "body": "0 pedidos PrestaShop lun-mar, 0 documentos Contífico BE en toda la semana y la única compra GA4 fue una prueba de $1. La semana previa hubo 5 compras GA4 por $115.",
+          "action": "Revisar en el back-office de ec.boufashion.com los pedidos 18-22/nov y confirmar que el checkout del dominio nuevo acepta pagos reales."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "Tráfico EC −47% en la semana del cambio de dominio",
+          "body": "80 sesiones vs 152; Referral cayó de 34 a 9 y Organic Social de 25 a 13. Links viejos en bio/linktree/posts pasan por redirección y pueden perder atribución o romperse.",
+          "action": "Actualizar links en bio de Instagram, WhatsApp Business y Linktree al dominio nuevo; anunciar el cambio en redes."
+        },
+        {
+          "tag": "watch",
+          "tagLabel": "Vigilar",
+          "title": "Conversación cae: EC 19 entrantes, COL 10 con 2 respuestas",
+          "body": "EC 51→19 entrantes y 42→10 salientes; jue-dom solo 2 entrantes EC. COL respondió 2 de 10. Backlog al domingo: 8 EC / 1 COL. Funnel 30d: EC 64 leads (2 calientes, 12 tibios), COL 7 (2 calientes).",
+          "action": "Contactar los 4 leads calientes (2 EC, 2 COL) y responder los 8 chats pendientes EC."
+        },
+        {
+          "tag": "opportunity",
+          "tagLabel": "Oportunidad",
+          "title": "Embudo EC activo en el dominio nuevo",
+          "body": "11 add_to_cart y 18 begin_checkout en la semana: hay intención de compra. 2 sesiones llegaron a pago sin concretar.",
+          "action": "Reactivar con un push en redes de los productos que vendieron la semana pasada (vinilo Guanaco, CD Lolabúm) apuntando a ec.boufashion.com."
+        }
+      ],
+      "acciones": [
+        {
+          "title": "Habilitar *.boufashion.com en la lista blanca de red",
+          "body": "Sin esto el dashboard no ve PrestaShop (ventas EC/COL) desde el 18/nov.",
+          "owner": "Luis / admin de la organización",
+          "timing": "Hoy"
+        },
+        {
+          "title": "Verificar pedidos 18-22/nov en el back-office",
+          "body": "Confirmar manualmente si hubo ventas mié-dom y que el checkout del dominio nuevo cobra correctamente.",
+          "owner": "Operaciones",
+          "timing": "Hoy"
+        },
+        {
+          "title": "Actualizar links al dominio nuevo",
+          "body": "Bio Instagram, WhatsApp Business, Linktree y posts fijados → ec./co.boufashion.com; tráfico Referral cayó 34→9.",
+          "owner": "Marketing",
+          "timing": "Esta semana"
+        },
+        {
+          "title": "Responder backlog y leads calientes",
+          "body": "8 chats EC + 1 COL pendientes; 4 leads con datos bancarios (2 EC, 2 COL).",
+          "owner": "Equipo comercial",
+          "timing": "Hoy"
+        },
+        {
+          "title": "Reautorizar Meta Ads en Windsor.ai",
+          "body": "7 semanas sin dato de gasto/ROAS.",
+          "owner": "Luis",
+          "timing": "Esta semana"
+        }
+      ],
+      "notas_verificacion": [
+        "Semana: lun 16 a dom 22 nov 2026 (ISO W47); previa 9-15 nov tomada de lo publicado en W46 (tráfico GA4 EC desde Windsor, ventas y mensajería desde daily-log).",
+        "daily-log.json leído de la rama claude/epic-galileo-ge3djw de getbou/bou-dashboard-data (commit 23/nov 23:13 UTC); main de ese repo termina el 30/sep. Sáb 21 y dom 22 parcial=true (solo corte de mañana).",
+        "PrestaShop: prestashop_* null del 18 al 22/nov en el daily-log (301 → ec./co.boufashion.com, dominio bloqueado por la lista blanca; re-verificado 24/nov: conexión rechazada). Ventas publicadas = solo lun 16 y mar 17. NO son ceros reales de mié-dom.",
+        "GA4 tráfico, eventos, canales y artículos vía Windsor.ai (propiedad 414923086) sumando bouentertainment.com + ec.boufashion.com (EC) y co.boufashion.com (COL); usuarios = suma de usuarios activos diarios. La compra de $1 es el producto 'PRUEBA BOU — no comprar'.",
+        "Meta Ads (Windsor.ai facebook) NO consultado con éxito el 24/nov: 'No facebook accounts are configured'; ads en 0/vacío.",
+        "Lapso de respuesta: promedio de días con valor (EC solo 1 día: 22 s; COL ningún día → null). Backlog y funnel Kommo: snapshot del dom 22/nov.",
+        "Contífico: 0 documentos BE en la semana según daily-log (vs 3 por $82,41 la previa).",
+        "Matriz Ventas COL (Google Sheet) no releída; el daily-log reporta 0 registros en la semana, última fecha 8/nov.",
+        "Verificación visual de reporte-semanal.html pendiente de revisión manual por Luis (sin navegador en cloud)."
+      ]
     }
   ]
 }
